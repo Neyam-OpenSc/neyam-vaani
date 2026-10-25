@@ -108,7 +108,7 @@ p { margin: 0 0 1.1em; }
 
 /* ---------- Page headers ---------- */
 
-.page-head { padding: 72px 0 44px; }
+.page-head { padding: 72px 0 24px; }
 .intro { padding: 88px 0 60px; }
 .kicker {
   font-size: 0.8rem;
@@ -160,7 +160,7 @@ p { margin: 0 0 1.1em; }
 
 /* ---------- Sections ---------- */
 
-.section { padding: 68px 0 56px; }
+.section { padding: 56px 0 52px; }
 .section-rule { border-top: 1px solid var(--rule); }
 .section-intro { color: var(--ink-soft); max-width: 62ch; margin-top: -0.3em; }
 
@@ -185,18 +185,19 @@ blockquote p { margin: 0; }
 }
 .ed-list li {
   counter-increment: item;
-  display: grid;
-  grid-template-columns: 3.2em 1fr;
-  gap: 0 8px;
-  padding: 22px 0;
+  position: relative;
+  padding: 22px 0 22px 3.4em;
   border-top: 1px solid var(--rule);
 }
+.ed-list li:last-child { border-bottom: 1px solid var(--rule); }
 .ed-list li::before {
   content: counter(item, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 24px;
   font-family: var(--serif);
   font-size: 1.05rem;
   color: var(--ink-faint);
-  padding-top: 0.15em;
 }
 .ed-list h3 { margin: 0; }
 .ed-list p { margin: 0.15em 0 0; color: var(--ink-soft); max-width: 62ch; }
@@ -324,6 +325,83 @@ table.spec td strong { color: var(--ink); }
 .links [aria-hidden] { color: var(--ink-faint); }
 .contribute { padding-bottom: 90px; }
 
+/* ---------- Motion ----------
+   Gentle and few: an entrance stagger on the hero, a soft rise when
+   sections scroll into view (via site.js), and quiet hover states.
+   All of it is disabled under prefers-reduced-motion. */
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.intro .kicker,
+.intro h1,
+.intro .standfirst,
+.intro .greeting {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+.intro h1 { animation-delay: 0.08s; }
+.intro .standfirst { animation-delay: 0.18s; }
+.intro .greeting { animation-delay: 0.32s; }
+
+.page-head .kicker,
+.page-head h1,
+.page-head .standfirst {
+  animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+.page-head h1 { animation-delay: 0.06s; }
+.page-head .standfirst { animation-delay: 0.14s; }
+
+/* Scroll reveal (classes applied by site.js; without JS nothing hides) */
+main > section.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+main > section.reveal.revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* Quiet hover micro-interactions */
+.masthead nav a {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.25s ease, color 0.25s ease;
+}
+.masthead nav a:hover { background-size: 100% 1px; }
+.masthead nav a[aria-current="page"] { background-size: 100% 1px; }
+
+.toc li { transition: background-color 0.25s ease; }
+.toc li:hover { background-color: var(--paper-deep); }
+.toc a { transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.3, 1); }
+.toc a:hover { transform: translateX(6px); }
+
+.ed-list li,
+.lang-list li,
+.phase-list li { transition: background-color 0.25s ease; }
+.ed-list li:hover,
+.lang-list li:hover,
+.phase-list li:hover { background-color: var(--paper-deep); }
+
+.glance-grid > div { transition: background-color 0.25s ease; }
+.glance-grid > div:hover { background-color: rgba(192, 86, 33, 0.05); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  main > section.reveal { opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
+
 /* ---------- Colophon ---------- */
 
 .colophon {
@@ -352,8 +430,6 @@ table.spec td strong { color: var(--ink); }
   .masthead-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
   .intro { padding-top: 56px; }
   .page-head { padding-top: 48px; }
-  .ed-list li { grid-template-columns: 1fr; }
-  .ed-list li::before { display: block; margin-bottom: 2px; }
   table.spec { font-size: 0.88rem; }
   .lang-name { font-size: 1.2rem; }
 }
