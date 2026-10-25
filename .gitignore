@@ -1,0 +1,29 @@
+# Flutter / Dart
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+*.lock
+!pubspec.lock
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Generated platform folders (created per-machine via `flutter create .`)
+app/android/
+app/ios/
+app/web/
+app/windows/
+app/linux/
+app/macos/
+
+# Models & knowledge artifacts (downloaded/built, never committed)
+models/**/downloads/
+knowledge/build/
+
+# OS junk
+.DS_Store
+Thumbs.db

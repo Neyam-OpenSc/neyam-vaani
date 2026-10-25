@@ -1,0 +1,9 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    # Vaani house style: be strict — this codebase must stay readable
+    # for newcomers (see TENDER_UX_PRINCIPLES.md / CONTRIBUTING.md).
+    prefer_single_quotes: true
+    unawaited_futures: true
+    always_declare_return_types: true

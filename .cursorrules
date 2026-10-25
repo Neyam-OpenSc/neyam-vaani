@@ -1,0 +1,36 @@
+You are working on Neyam Vaani, a voice-first AI assistant for Indian
+vernacular languages.
+
+Non-negotiable principles:
+- Offline-first: every core feature works with zero internet
+- Cheap-hardware-first: must run on a 2GB RAM Android phone
+- Voice-first: voice in, voice out; typing is a fallback
+- Vernacular-first: Tamil, Hindi, Bengali, Kannada, Telugu, Marathi,
+  Bhojpuri, Maithili at parity; English is secondary
+- Privacy-by-default: on-device only; no cloud, no telemetry, no accounts
+- Tender UX: no dark patterns, no engagement hooks, no unrequested
+  notifications
+- Grandmother-usable: if a 70-year-old can't use it unaided, it's broken
+
+Before writing any code, read:
+- /docs/architecture.md
+- /PRIVACY_CHARTER.md
+- /TENDER_UX_PRINCIPLES.md
+
+Code style:
+- Flutter app uses clean architecture (data/domain/presentation)
+- Riverpod for state management
+- All public APIs documented
+- All errors handled with kind messages in the user's language
+- All user-facing strings localized via .arb files, never hardcoded
+- C++ bridges: C++17, RAII, no exceptions across JNI
+- Tests first for domain logic (90% coverage target)
+
+Never add (settled decisions — do not propose):
+- Cloud AI calls or Firebase or any telemetry
+- Accounts/logins, ads, gamification, streaks, badges
+- Features outside the top 20 use cases in /docs/use-cases.md
+- A chatbot persona with a name/backstory
+
+When unsure between shipping fast and respecting a principle,
+respect the principle.

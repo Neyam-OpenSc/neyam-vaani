@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Ask a question
+    url: https://github.com/Neyam-OpenSc/neyam-vaani/discussions
+    about: Ideas, help, and conversation — we're friendly by policy.
+  - name: 🔒 Report a security issue
+    url: https://github.com/Neyam-OpenSc/neyam-vaani/security/advisories/new
+    about: Please don't post security vulnerabilities publicly.

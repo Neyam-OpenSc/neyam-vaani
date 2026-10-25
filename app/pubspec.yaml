@@ -1,0 +1,26 @@
+name: neyam_vaani
+description: >-
+  Neyam Vaani — a voice-first, offline AI assistant for Indian vernacular
+  languages. Private by default, tender by design.
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=3.5.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^2.5.1
+  go_router: ^14.2.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/prompts/
