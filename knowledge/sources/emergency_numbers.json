@@ -1,0 +1,133 @@
+{
+  "source": "Government of India public emergency helpline numbers (112, 100, 108, 1091, 1098, 145)",
+  "license": "Public domain (factual helpline numbers published for public use)",
+  "notes": "Verified against public Government of India announcements. Helpline numbers are facts; the wording of each entry was written for this project and is CC-BY-SA 4.0 like all language data (see README.md in the repository root).",
+  "documents": [
+    {
+      "id": "emergency-112-en",
+      "title": "National emergency number 112",
+      "lang": "en",
+      "text": "112 is India's national emergency number. Police, fire, or medical help - call 112 free from any phone, in any emergency.",
+      "tags": ["emergency", "national"]
+    },
+    {
+      "id": "emergency-112-hi",
+      "title": "राष्ट्रीय आपातकालीन नंबर 112",
+      "lang": "hi",
+      "text": "112 भारत का राष्ट्रीय आपातकालीन नंबर है. पुलिस, फायर या चिकित्सा सहायता - किसी भी आपातकाल में किसी भी फोन से मुफ्त कॉल करें.",
+      "tags": ["emergency", "national"]
+    },
+    {
+      "id": "emergency-112-ta",
+      "title": "தேசிய அவசர உதவி எண் 112",
+      "lang": "ta",
+      "text": "112 இந்தியாவின் தேசிய அவசர உதவி எண். காவல், தீயணைப்பு, மருத்துவ உதவி - எந்த அவசர நேரத்திலும் எந்த போனில் இருந்தும் இலவசமாக அழைக்கலாம்.",
+      "tags": ["emergency", "national"]
+    },
+    {
+      "id": "emergency-100-en",
+      "title": "Police helpline 100",
+      "lang": "en",
+      "text": "100 is the police helpline. Call to report a crime or get immediate police help - always free.",
+      "tags": ["emergency", "police"]
+    },
+    {
+      "id": "emergency-100-hi",
+      "title": "पुलिस हेल्पलाइन 100",
+      "lang": "hi",
+      "text": "100 पुलिस हेल्पलाइन नंबर है. शिकायत करने या तुरंत पुलिस मदद के लिए कॉल करें - हमेशा मुफ्त.",
+      "tags": ["emergency", "police"]
+    },
+    {
+      "id": "emergency-100-ta",
+      "title": "காவல் துறை உதவி எண் 100",
+      "lang": "ta",
+      "text": "100 காவல் துறையின் உதவி எண். புகார் அளிக்கவும், உடனடி காவல் உதவி கேட்கவும் - எப்போதும் இலவசம்.",
+      "tags": ["emergency", "police"]
+    },
+    {
+      "id": "emergency-108-en",
+      "title": "Free ambulance 108",
+      "lang": "en",
+      "text": "108 is the free ambulance service. Call 108 in a medical emergency and a free ambulance is sent to you.",
+      "tags": ["emergency", "ambulance"]
+    },
+    {
+      "id": "emergency-108-hi",
+      "title": "मुफ्त एम्बुलेंस 108",
+      "lang": "hi",
+      "text": "108 मुफ्त एम्बुलेंस सेवा है. चिकित्सा आपातकाल में 108 पर कॉल करें, मुफ्त एम्बुलेंस आपके पास भेजी जाएगी.",
+      "tags": ["emergency", "ambulance"]
+    },
+    {
+      "id": "emergency-108-ta",
+      "title": "இலவச ஆம்புலன்ஸ் 108",
+      "lang": "ta",
+      "text": "108 இலவச ஆம்புலன்ஸ் சேவை. மருத்துவ அவசர நேரத்தில் 108-க்கு அழையுங்கள்; இலவச ஆம்புலன்ஸ் உங்களுக்கு அனுப்பப்படும்.",
+      "tags": ["emergency", "ambulance"]
+    },
+    {
+      "id": "emergency-1091-en",
+      "title": "Women helpline 1091",
+      "lang": "en",
+      "text": "1091 is the national women helpline. Immediate help for women's safety - free, 24 hours a day.",
+      "tags": ["emergency", "women"]
+    },
+    {
+      "id": "emergency-1091-hi",
+      "title": "महिला हेल्पलाइन 1091",
+      "lang": "hi",
+      "text": "1091 राष्ट्रीय महिला हेल्पलाइन है. महिलाओं की सुरक्षा के लिए तुरंत मदद - मुफ्त, चौबीसों घंटे.",
+      "tags": ["emergency", "women"]
+    },
+    {
+      "id": "emergency-1091-ta",
+      "title": "பெண்கள் உதவி எண் 1091",
+      "lang": "ta",
+      "text": "1091 பெண்களுக்கான தேசிய உதவி எண். பெண்களின் பாதுகாப்புக்கு உடனடி உதவி - இலவசம், நாள் முழுவதும்.",
+      "tags": ["emergency", "women"]
+    },
+    {
+      "id": "emergency-1098-en",
+      "title": "Child helpline 1098 (CHILDLINE)",
+      "lang": "en",
+      "text": "1098 is CHILDLINE. Call when a child needs help or protection - free, 24 hours a day.",
+      "tags": ["emergency", "child"]
+    },
+    {
+      "id": "emergency-1098-hi",
+      "title": "बाल सहायता हेल्पलाइन 1098",
+      "lang": "hi",
+      "text": "1098 CHILDLINE - जब कोई बच्चा मदद या सुरक्षा चाहे तो कॉल करें. मुफ्त, चौबीसों घंटे.",
+      "tags": ["emergency", "child"]
+    },
+    {
+      "id": "emergency-1098-ta",
+      "title": "குழந்தைகள் உதவி எண் 1098",
+      "lang": "ta",
+      "text": "1098 CHILDLINE - குழந்தைக்கு உதவி அல்லது பாதுகாப்பு தேவைப்படும் போது அழைக்கவும். இலவசம், நாள் முழுவதும்.",
+      "tags": ["emergency", "child"]
+    },
+    {
+      "id": "emergency-145-en",
+      "title": "Senior citizens helpline 145",
+      "lang": "en",
+      "text": "145 is the senior citizens helpline. Help with elder care and with complaints of abuse against the elderly.",
+      "tags": ["emergency", "senior-citizens"]
+    },
+    {
+      "id": "emergency-145-hi",
+      "title": "वरिष्ठ नागरिक हेल्पलाइन 145",
+      "lang": "hi",
+      "text": "145 वरिष्ठ नागरिकों की हेल्पलाइन है. बुज़ुर्गों की देखभाल और उनके साथ होने वाले उत्पीड़न की शिकायतों में मदद मिलती है.",
+      "tags": ["emergency", "senior-citizens"]
+    },
+    {
+      "id": "emergency-145-ta",
+      "title": "முதியோர் உதவி எண் 145",
+      "lang": "ta",
+      "text": "145 முதியோர்களுக்கான உதவி எண். முதியோர் பராமரிப்பு மற்றும் முதியோர் மீதான துன்புறுத்தல் புகார்களுக்கு உதவி கிடைக்கும்.",
+      "tags": ["emergency", "senior-citizens"]
+    }
+  ]
+}

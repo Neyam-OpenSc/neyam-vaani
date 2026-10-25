@@ -66,16 +66,19 @@ Full architecture and the reasoning behind every choice:
 
 | Phase | Scope | Status |
 |---|---|---|
-| 0 | Bootstrap — Flutter skeleton, CI, community files | 🚧 In progress |
-| 1 | Voice input — Whisper.cpp bridge, push-to-talk, STT in 3 languages | ⬜ |
-| 2 | Voice output — Piper TTS, 9 languages, interruptible | ⬜ |
-| 3 | On-device LLM — Qwen 2.5-3B Q4 via llama.cpp | ⬜ |
-| 4 | Intent classification + orchestration | ⬜ |
-| 5 | Actions — SMS, calls, reminders, clipboard, torch | ⬜ |
-| 6 | Offline knowledge base + RAG | ⬜ |
-| 7 | OCR & document reading | ⬜ |
-| 8 | On-device translation (NLLB-200) | ⬜ |
-| 9 | Polish — accessibility, tenderness audit, performance | ⬜ |
+| 0 | Bootstrap — Flutter skeleton, CI, community files | ✅ Done |
+| 1 | Voice input — Whisper.cpp bridge, push-to-talk, STT in 3 languages | 🧩 Code scaffolded |
+| 2 | Voice output — Piper TTS, 9 languages, interruptible | 🧩 Code scaffolded |
+| 3 | On-device LLM — Qwen 2.5-3B Q4 via llama.cpp | 🧩 Code scaffolded |
+| 4 | Intent classification + orchestration | 🧩 Code scaffolded |
+| 5 | Actions — SMS, calls, reminders, clipboard, torch | 🧩 Code scaffolded |
+| 6 | Offline knowledge base + RAG | 🧩 Code scaffolded |
+| 7 | OCR & document reading | 🧩 Code scaffolded |
+| 8 | On-device translation (NLLB-200) | 🧩 Code scaffolded |
+| 9 | Polish — accessibility, tenderness audit, performance | 🚧 In progress |
+
+Code scaffolding for phases 1-8 is complete and CI-green; on-device
+validation with native model packs is the next milestone.
 
 Full 90-day plan: **[docs/roadmap.md](docs/roadmap.md)**
 

@@ -24,3 +24,5 @@ flutter:
 
   assets:
     - assets/prompts/
+    - assets/training_data/intents/
+    - assets/knowledge/

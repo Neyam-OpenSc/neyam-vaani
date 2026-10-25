@@ -1,0 +1,43 @@
+{
+  "@@locale": "en",
+  "appName": "Neyam Vaani",
+  "@appName": {
+    "description": "App display name.",
+    "@x-note": "Brand name. Keep as-is unless a steward provides a native-script form."
+  },
+  "settingsTitle": "Settings",
+  "yourLanguage": "Your language",
+  "languageSubtitle": "Used for listening and speaking",
+  "listening": "I'm listening…",
+  "@listening": {
+    "description": "Status while the microphone is open.",
+    "@x-note": "Calm, feminine voice persona; first person; ellipsis, never an exclamation mark."
+  },
+  "thinking": "I'm thinking…",
+  "speaking": "I'm speaking…",
+  "transcribing": "I'm writing that down…",
+  "tapAndSpeak": "Tap the microphone and speak",
+  "talkToVaani": "Talk to Vaani",
+  "couldNotHear": "I couldn't hear you clearly. Can you try again?",
+  "@couldNotHear": {
+    "description": "Shown when STT picked up nothing usable.",
+    "@x-note": "All errors are kind: one plain sentence, no error codes, no blame."
+  },
+  "tryAgain": "Try again",
+  "iDontKnow": "I don't know",
+  "@iDontKnow": {
+    "description": "Honest uncertainty; beats a confident hallucination.",
+    "@x-note": "Calm and short. Never pad it with apologies."
+  },
+  "clearHistory": "Clear conversation history",
+  "clearHistoryDesc": "Deletes everything, immediately",
+  "scanDocument": "Scan a document",
+  "readAloud": "Read it aloud",
+  "photosNotSaved": "Your photo is not saved anywhere",
+  "needsRetype": "You will need to type it again",
+  "permissionMicWhy": "To hear you",
+  "permissionSmsWhy": "To send the message you asked for",
+  "permissionCallWhy": "To make the call you asked for",
+  "actionDone": "Done",
+  "actionFailed": "I couldn't do that. Can we try again?"
+}

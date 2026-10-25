@@ -1,0 +1,133 @@
+{
+  "format": "neyam-kb/1",
+  "description": "Bundled sample knowledge base (18 entries, ta/hi/en) so knowledge features work before any language pack is installed. Schema identical to knowledge/sources (see knowledge/README.md). Facts are public domain; wording is project-authored.",
+  "document_count": 18,
+  "documents": [
+    {
+      "id": "emergency-numbers-ta",
+      "title": "அவசர உதவி எண்கள்",
+      "lang": "ta",
+      "text": "112 - தேசிய அவசர உதவி எண் (காவல், தீ, மருத்துவம்). 100 - காவல் துறை. 108 - இலவச ஆம்புலன்ஸ். 1091 - பெண்கள் உதவி எண். 1098 - குழந்தைகள் உதவி எண் (CHILDLINE). 145 - முதியோர் உதவி எண். இவை அனைத்தும் இலவசம்.",
+      "tags": ["emergency", "helpline", "safety"]
+    },
+    {
+      "id": "health-fever-ta",
+      "title": "காய்ச்சல் - அடிப்படை வழிகாட்டி",
+      "lang": "ta",
+      "text": "காய்ச்சல் என்றால்: நிறைய தண்ணீர் குடிக்கவும், ஓய்வு எடுக்கவும். காய்ச்சல் மூன்று நாட்களுக்கு மேல் நீடித்தால் மருத்துவரிடம் செல்லுங்கள். இது மருத்துவ ஆலோசனை அல்ல - சந்தேகம் இருந்தால் மருத்துவரிடம் கேளுங்கள்.",
+      "tags": ["health", "guide"]
+    },
+    {
+      "id": "scheme-pmkisan-ta",
+      "title": "PM-Kisan திட்டம்",
+      "lang": "ta",
+      "text": "PM-Kisan (பிரதம மந்திரி கிசான் சம்மான் நிதி): தகுதியான விவசாய குடும்பங்களுக்கு ஆண்டுக்கு ரூ.6,000, மூன்று தவணைகளில் நேரடியாக வங்கிக் கணக்கில். விண்ணப்பம்: pmkisan.gov.in.",
+      "tags": ["government", "scheme", "farmers"]
+    },
+    {
+      "id": "scheme-ayushman-ta",
+      "title": "ஆயுஷ்மான் பாரத் (PM-JAY)",
+      "lang": "ta",
+      "text": "ஆயுஷ்மான் பாரத் திட்டம்: தகுதியான குடும்பங்களுக்கு ஆண்டுக்கு ரூ.5 லட்சம் வரை இலவச மருத்துவமனை சிகிச்சை, அரசு பட்டியலில் உள்ள மருத்துவமனைகளில்.",
+      "tags": ["government", "scheme", "health"]
+    },
+    {
+      "id": "howto-torch-ta",
+      "title": "டார்ச் எப்படி ஆன் செய்வது",
+      "lang": "ta",
+      "text": "வாணியிடம் \"டார்ச் ஆன்\" என்று சொல்லுங்கள் - டார்ச் பற்றிவிடும். \"டார்ச் ஆஃப்\" என்று சொன்னால் அணையும். கை தட்டி விட்டு பேசினால் போதும்.",
+      "tags": ["howto", "torch"]
+    },
+    {
+      "id": "howto-call-ta",
+      "title": "குரலால் அழைப்பு செய்ய",
+      "lang": "ta",
+      "text": "வாணியிடம் \"அம்மாவை கால் பண்ணு\" என்று சொல்லுங்கள். வாணி உங்கள் தொடர்புகளில் இருந்து எண்ணை கண்டு அழைப்பை தொடங்கும். எந்த எண்ணும் வாணி நினைவில் சேமிக்கப்படாது.",
+      "tags": ["howto", "call"]
+    },
+    {
+      "id": "emergency-numbers-hi",
+      "title": "आपातकालीन नंबर",
+      "lang": "hi",
+      "text": "112 - राष्ट्रीय आपातकालीन नंबर (पुलिस, फायर, चिकित्सा). 100 - पुलिस. 108 - मुफ्त एम्बुलेंस. 1091 - महिला हेल्पलाइन. 1098 - बाल सहायता (CHILDLINE). 145 - वरिष्ठ नागरिक हेल्पलाइन. सभी नंबर मुफ्त हैं.",
+      "tags": ["emergency", "helpline", "safety"]
+    },
+    {
+      "id": "health-fever-hi",
+      "title": "बुखार - बुनियादी गाइड",
+      "lang": "hi",
+      "text": "बुखार हो तो खूब पानी पिएं और आराम करें. बुखार तीन दिन से ज़्यादा रहे तो डॉक्टर से मिलें. यह चिकित्सा सलाह नहीं है - सवाल हो तो डॉक्टर से पूछें.",
+      "tags": ["health", "guide"]
+    },
+    {
+      "id": "scheme-pmkisan-hi",
+      "title": "PM-किसान योजना",
+      "lang": "hi",
+      "text": "PM-किसान (प्रधानमंत्री किसान सम्मान निधि): पात्र किसान परिवारों को हर साल रु.6,000, तीन किस्तों में सीधे बैंक खाते में. आवेदन: pmkisan.gov.in.",
+      "tags": ["government", "scheme", "farmers"]
+    },
+    {
+      "id": "scheme-ayushman-hi",
+      "title": "आयुष्मान भारत (PM-JAY)",
+      "lang": "hi",
+      "text": "आयुष्मान भारत योजना: पात्र परिवारों को हर साल रु.5 लाख तक निःशुल्क अस्पताल इलाज, सूची में शामिल अस्पतालों में.",
+      "tags": ["government", "scheme", "health"]
+    },
+    {
+      "id": "howto-torch-hi",
+      "title": "टॉर्च कैसे चालू करें",
+      "lang": "hi",
+      "text": "वाणी से कहें \"टॉर्च चालू करो\" - टॉर्च जल जाएगी. बंद करने के लिए कहें \"टॉर्च बंद करो\". बस बोलिए, टाइप करने की ज़रूरत नहीं.",
+      "tags": ["howto", "torch"]
+    },
+    {
+      "id": "howto-call-hi",
+      "title": "आवाज़ से कॉल करना",
+      "lang": "hi",
+      "text": "वाणी से कहें \"अम्मा को कॉल करो\". वाणी आपके संपर्कों में से नंबर ढूंढकर कॉल लगाएगी. कोई भी नंबर वाणी याद नहीं रखती.",
+      "tags": ["howto", "call"]
+    },
+    {
+      "id": "emergency-numbers-en",
+      "title": "Emergency numbers",
+      "lang": "en",
+      "text": "112 - national emergency number (police, fire, medical). 100 - police. 108 - free ambulance. 1091 - women helpline. 1098 - child helpline (CHILDLINE). 145 - senior citizens helpline. All of these numbers are free to call.",
+      "tags": ["emergency", "helpline", "safety"]
+    },
+    {
+      "id": "health-fever-en",
+      "title": "Fever - basic guide",
+      "lang": "en",
+      "text": "For a fever: drink plenty of water and rest. If the fever lasts more than three days, see a doctor. This is not medical advice - consult a doctor when in doubt.",
+      "tags": ["health", "guide"]
+    },
+    {
+      "id": "scheme-pmkisan-en",
+      "title": "PM-Kisan scheme",
+      "lang": "en",
+      "text": "PM-Kisan (Pradhan Mantri Kisan Samman Nidhi): eligible farmer families receive Rs 6,000 per year, in three instalments paid directly to their bank account. Apply at pmkisan.gov.in.",
+      "tags": ["government", "scheme", "farmers"]
+    },
+    {
+      "id": "scheme-ayushman-en",
+      "title": "Ayushman Bharat (PM-JAY)",
+      "lang": "en",
+      "text": "Ayushman Bharat PM-JAY: eligible families get free hospital treatment up to Rs 5 lakh per year, at hospitals on the government panel list.",
+      "tags": ["government", "scheme", "health"]
+    },
+    {
+      "id": "howto-torch-en",
+      "title": "How to turn on the torch",
+      "lang": "en",
+      "text": "Tell Vaani \"torch on\" and the flashlight turns on. Say \"torch off\" to turn it off. Just speak - no typing needed.",
+      "tags": ["howto", "torch"]
+    },
+    {
+      "id": "howto-call-en",
+      "title": "How to make a call by voice",
+      "lang": "en",
+      "text": "Tell Vaani \"call Amma\". Vaani finds the number in your contacts and starts the call. No number is ever stored by Vaani.",
+      "tags": ["howto", "call"]
+    }
+  ]
+}

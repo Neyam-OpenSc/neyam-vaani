@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/constants.dart';
+import '../../l10n/app_strings.dart';
 import '../providers.dart';
 
 /// Settings: language first, because language is identity here.
@@ -12,14 +13,15 @@ class SettingsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final String selected = ref.watch(selectedLanguageProvider);
+    final AppStrings strings = AppStrings.of(selected);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Settings')), // TODO(l10n)
+      appBar: AppBar(title: Text(strings.settingsTitle)),
       body: ListView(
-        children: [
-          const ListTile(
-            title: Text('Your language'), // TODO(l10n)
-            subtitle: Text('Used for listening and speaking'), // TODO(l10n)
+        children: <Widget>[
+          ListTile(
+            title: Text(strings.yourLanguage),
+            subtitle: Text(strings.languageSubtitle),
           ),
           for (final String code in kSupportedLanguages)
             ListTile(
@@ -33,10 +35,10 @@ class SettingsScreen extends ConsumerWidget {
             ),
           const Divider(),
           // Tender UX: data controls are always 3 taps away, never buried.
-          const ListTile(
-            leading: Icon(Icons.delete_outline),
-            title: Text('Clear conversation history'), // TODO(l10n)
-            subtitle: Text('Deletes everything, immediately'), // TODO(l10n)
+          ListTile(
+            leading: const Icon(Icons.delete_outline),
+            title: Text(strings.clearHistory),
+            subtitle: Text(strings.clearHistoryDesc),
             enabled: false, // arrives with Phase 5 (storage layer)
           ),
         ],
