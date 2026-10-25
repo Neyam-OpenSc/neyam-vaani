@@ -72,8 +72,8 @@ class _ListeningIndicatorState extends State<ListeningIndicator>
     );
     if (pulse != null) {
       final Animation<double> scale = pulse
-          .drive(const CurveTween(curve: Curves.easeInOut))
-          .drive(const Tween<double>(begin: 1.0, end: 1.35));
+          .drive(CurveTween(curve: Curves.easeInOut))
+          .drive(Tween<double>(begin: 1.0, end: 1.35));
       dot = ScaleTransition(scale: scale, child: dot);
     }
 

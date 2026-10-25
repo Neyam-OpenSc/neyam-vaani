@@ -17,7 +17,7 @@ import '../entities/action_result.dart' show ActionMessageKeys;
 
 /// A reminder failed validation (empty title, due time too far past).
 final class ReminderValidationFailure extends Failure {
-  const ReminderValidationFailure(String detail) : super(detail);
+  const ReminderValidationFailure(super.detail);
 
   @override
   FailureKind get kind => FailureKind.unknown;
@@ -28,7 +28,7 @@ final class ReminderValidationFailure extends Failure {
 
 /// No reminder matched the given id.
 final class ReminderNotFoundFailure extends Failure {
-  const ReminderNotFoundFailure(String detail) : super(detail);
+  const ReminderNotFoundFailure(super.detail);
 
   @override
   FailureKind get kind => FailureKind.unknown;

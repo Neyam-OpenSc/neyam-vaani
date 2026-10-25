@@ -289,8 +289,8 @@ List<String> _tokenize(String text) {
       .toLowerCase()
       .replaceAll('\u200B', ' ')
       .replaceAll('\u200C', '');
-  return _separator
-      .split(cleaned)
+  return cleaned
+      .split(_separator)
       .where((String token) =>
           token.isNotEmpty && !_stopwords.contains(token))
       .toList();

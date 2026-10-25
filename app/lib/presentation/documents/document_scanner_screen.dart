@@ -203,7 +203,7 @@ class _DocumentScannerScreenState extends State<DocumentScannerScreen> {
           message: _failure ?? 'The document could not be read.', // TODO(l10n)
         );
       case _ScanPhase.needsRetype:
-        return _CalmMessage(
+        return const _CalmMessage(
           icon: Icons.edit_outlined,
           // Charter: never guess handwriting — ask for the words instead.
           message: 'This writing is hard for Vaani to read. Please type it, '

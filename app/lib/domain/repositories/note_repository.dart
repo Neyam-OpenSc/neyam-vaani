@@ -12,7 +12,7 @@ import '../entities/action_result.dart' show ActionMessageKeys;
 
 /// A note failed validation (blank body).
 final class NoteValidationFailure extends Failure {
-  const NoteValidationFailure(String detail) : super(detail);
+  const NoteValidationFailure(super.detail);
 
   @override
   FailureKind get kind => FailureKind.unknown;

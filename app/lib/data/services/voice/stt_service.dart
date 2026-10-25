@@ -53,6 +53,7 @@ import 'dart:ffi';
 import 'dart:isolate';
 import 'dart:typed_data';
 
+import 'package:ffi/ffi.dart';
 import 'package:flutter/foundation.dart' show visibleForTesting;
 
 import '../../../core/constants.dart' show kDefaultLanguage;
@@ -330,18 +331,6 @@ typedef _WSampleRate = int Function();
 typedef _WFreeNative = Void Function();
 typedef _WFree = void Function();
 
-extension _NativeUtf8 on String {
-  /// Hand-rolled `String -> Pointer<Utf8>` (package:ffi is not a dep).
-  Pointer<Utf8> toNativeUtf8() {
-    final List<int> bytes = utf8.encode(this);
-    final Pointer<Uint8> out = calloc<Uint8>(bytes.length + 1);
-    final Uint8List view = out.asTypedList(bytes.length + 1);
-    view.setRange(0, bytes.length, bytes);
-    view[bytes.length] = 0;
-    return out.cast<Utf8>();
-  }
-}
-
 String _readUtf8(Pointer<Utf8> pointer) {
   try {
     final Pointer<Uint8> bytes = pointer.cast<Uint8>();
@@ -594,8 +583,8 @@ class SttService {
       return false;
     }
     try {
-      final Pointer<Utf8> modelPtr = modelPath.toNativeUtf8();
-      final Pointer<Utf8> langPtr = language.toNativeUtf8();
+      final Pointer<Utf8> modelPtr = modelPath.toNativeUtf8(allocator: calloc);
+      final Pointer<Utf8> langPtr = language.toNativeUtf8(allocator: calloc);
       try {
         final int rc = lib
             .lookupFunction<_WInitNative, _WInit>('nv_whisper_init')(

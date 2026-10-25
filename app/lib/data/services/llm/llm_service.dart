@@ -56,10 +56,13 @@ import 'dart:async';
 import 'dart:convert' show utf8;
 import 'dart:ffi';
 
+import 'package:ffi/ffi.dart' show Utf8, calloc;
+
 import '../../../core/errors/failures.dart';
 import '../../../core/result.dart';
 import '../../../domain/usecases/orchestrate_user_request.dart'
-    show LlmGenerating, LlmRequest, LlmTokenEvent, LlmStopReason;
+    show LlmGenerating, LlmRequest, LlmTokenDone, LlmTokenEvent,
+    LlmTokenFailed, LlmStopReason, LlmTokenText;
 
 /// Lifecycle of the on-device model runtime.
 enum LlmState {

@@ -93,7 +93,7 @@ void main() {
     test('flatMap keeps the failure', () {
       const Result<int> result = Err<int>(ModelLoadFailure(detail: 'bad'));
       final Result<String> chained =
-          result.flatMap<String>((int v) => Ok<String>('never'));
+          result.flatMap<String>((int v) => const Ok<String>('never'));
       expect(chained.isErr, isTrue);
       expect(chained.failureOrNull, isA<ModelLoadFailure>());
     });

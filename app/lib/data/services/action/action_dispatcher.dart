@@ -105,7 +105,7 @@ class ActionDispatcher {
   Future<ActionResult> execute(VaaniAction action, SlotMap slots) async {
     final ActionHandler? handler = _handlers[action];
     if (handler == null) {
-      return const ActionFailed(
+      return ActionFailed(
         kind: ActionFailureKind.validation,
         userMessageKey: ActionMessageKeys.unknownAction,
         detail: 'no handler registered for ${action.name}',

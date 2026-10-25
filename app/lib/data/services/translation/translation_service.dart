@@ -48,21 +48,31 @@ class TranslationResult {
     required this.ok,
     required this.text,
     required this.engine,
-    this.errorKind,
-    this.message,
+    required this.errorKind,
+    required this.message,
   });
 
   /// Creates a successful result.
-  const TranslationResult.success(this.text, this.engine)
-      : ok = true,
-        errorKind = null,
-        message = null;
+  const TranslationResult.success(String text, String engine)
+      : this._(
+          ok: true,
+          text: text,
+          engine: engine,
+          errorKind: null,
+          message: null,
+        );
 
   /// Creates a failure result. Never fabricates output text.
-  const TranslationResult.failure(this.errorKind, this.message)
-      : ok = false,
-        text = '',
-        engine = '';
+  const TranslationResult.failure(
+    TranslationErrorKind errorKind,
+    String? message,
+  ) : this._(
+          ok: false,
+          text: '',
+          engine: '',
+          errorKind: errorKind,
+          message: message,
+        );
 
   /// Whether translation succeeded.
   final bool ok;

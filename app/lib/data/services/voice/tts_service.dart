@@ -34,10 +34,11 @@
 library;
 
 import 'dart:async';
-import 'dart:convert' show utf8;
 import 'dart:ffi';
 import 'dart:math' as math;
 import 'dart:typed_data';
+
+import 'package:ffi/ffi.dart';
 
 /// Lifecycle of the voice-output pipeline.
 enum TtsState {
@@ -124,18 +125,6 @@ typedef _PIsSpeaking = int Function();
 typedef _PFreeNative = Void Function();
 typedef _PFree = void Function();
 
-extension _NativeUtf8 on String {
-  /// Hand-rolled `String -> Pointer<Utf8>` (package:ffi is not a dep).
-  Pointer<Utf8> toNativeUtf8() {
-    final List<int> bytes = utf8.encode(this);
-    final Pointer<Uint8> out = calloc<Uint8>(bytes.length + 1);
-    final Uint8List view = out.asTypedList(bytes.length + 1);
-    view.setRange(0, bytes.length, bytes);
-    view[bytes.length] = 0;
-    return out.cast<Utf8>();
-  }
-}
-
 // ---------------------------------------------------------------------------
 // FFI-backed bridge
 // ---------------------------------------------------------------------------
@@ -183,7 +172,7 @@ final class FfiPiperBridge implements PiperBridge {
       callable = NativeCallable<NativeFunction<_PPcmCbNative>>.listener(
         _onPcm,
       );
-      final Pointer<Utf8> pathPtr = path.toNativeUtf8();
+      final Pointer<Utf8> pathPtr = path.toNativeUtf8(allocator: calloc);
       try {
         if (lib
                 .lookupFunction<_PInitNative, _PInit>('nv_piper_init')(
@@ -198,7 +187,7 @@ final class FfiPiperBridge implements PiperBridge {
       }
       final String? second = additionalVoicePath;
       if (second != null) {
-        final Pointer<Utf8> secondPtr = second.toNativeUtf8();
+        final Pointer<Utf8> secondPtr = second.toNativeUtf8(allocator: calloc);
         try {
           lib
               .lookupFunction<_PAddVoiceNative, _PAddVoice>('nv_piper_add_voice')
@@ -278,7 +267,7 @@ final class FfiPiperBridge implements PiperBridge {
       return -16;
     }
     _handler = onPcm;
-    final Pointer<Utf8> textPtr = text.toNativeUtf8();
+    final Pointer<Utf8> textPtr = text.toNativeUtf8(allocator: calloc);
     try {
       // The bridge copies the string before returning; generation continues
       // on a native worker thread (native team owns that guarantee).

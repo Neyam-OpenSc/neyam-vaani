@@ -103,10 +103,9 @@ class VoiceMicButton extends ConsumerWidget {
 
 /// A slow, gentle pulse — calm, never urgent (TENDER_UX_PRINCIPLES.md).
 final class _CalmPulse extends StatefulWidget {
-  const _CalmPulse({required this.child, this.duration = const Duration(milliseconds: 1600)});
+  const _CalmPulse({required this.child});
 
   final Widget child;
-  final Duration duration;
 
   @override
   State<_CalmPulse> createState() => _CalmPulseState();
@@ -114,8 +113,10 @@ final class _CalmPulse extends StatefulWidget {
 
 final class _CalmPulseState extends State<_CalmPulse>
     with SingleTickerProviderStateMixin {
+  static const Duration _period = Duration(milliseconds: 1600);
+
   late final AnimationController _controller =
-      AnimationController(vsync: this, duration: widget.duration)
+      AnimationController(vsync: this, duration: _period)
         ..repeat(reverse: true);
 
   @override

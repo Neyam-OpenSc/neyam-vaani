@@ -73,13 +73,13 @@ void main() {
     testWidgets('ListeningIndicator renders static and labeled when the OS '
         'asks for reduced motion', (WidgetTester tester) async {
       final SemanticsHandle semantics = tester.ensureSemantics();
-      final bool reduceMotion = true;
+      const bool reduceMotion = true;
       await tester.pumpWidget(
-        MaterialApp(
+        const MaterialApp(
           home: Scaffold(
             body: MediaQuery(
               data: MediaQueryData(disableAnimations: reduceMotion),
-              child: const Center(child: ListeningIndicator(langCode: 'ta')),
+              child: Center(child: ListeningIndicator(langCode: 'ta')),
             ),
           ),
         ),
@@ -96,13 +96,13 @@ void main() {
     testWidgets('SpeakingIndicator renders static and labeled under '
         'disableAnimations', (WidgetTester tester) async {
       final SemanticsHandle semantics = tester.ensureSemantics();
-      final bool reduceMotion = true;
+      const bool reduceMotion = true;
       await tester.pumpWidget(
-        MaterialApp(
+        const MaterialApp(
           home: Scaffold(
             body: MediaQuery(
               data: MediaQueryData(disableAnimations: reduceMotion),
-              child: const Center(child: SpeakingIndicator(langCode: 'hi')),
+              child: Center(child: SpeakingIndicator(langCode: 'hi')),
             ),
           ),
         ),

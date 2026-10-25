@@ -27,7 +27,11 @@ enum FailureKind {
 }
 
 /// Base class of every failure in Vaani.
-sealed class Failure {
+///
+/// `base`: subtypes must themselves be base/final/sealed — the hierarchy
+/// stays closed to interface-style implements, but layer-specific final
+/// failures (e.g. repository validation failures) may extend it.
+abstract base class Failure {
   const Failure(this.detail);
 
   /// Which family of failure this is.
