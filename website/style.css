@@ -1,6 +1,6 @@
 /* Neyam Vaani — website styles.
-   Typographic, restrained, information-first. One accent color, hairline
-   rules, serif display headings. No decorative imagery beyond the wordmark. */
+   Editorial, typographic, information-first. One accent color, hairline
+   rules, serif display headings. Shared across all pages. */
 
 :root {
   --accent: #9C4118;        /* deep terracotta — links, small labels */
@@ -83,23 +83,32 @@ p { margin: 0 0 1.1em; }
   color: var(--ink);
   text-decoration: none;
   letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 .wordmark img { display: block; }
 .masthead nav {
   display: flex;
   align-items: baseline;
-  gap: 22px;
+  gap: 20px;
   flex-wrap: wrap;
-  font-size: 0.93rem;
+  font-size: 0.92rem;
 }
 .masthead nav a {
   color: var(--ink-soft);
   text-decoration: none;
 }
 .masthead nav a:hover { color: var(--accent); }
+.masthead nav a[aria-current="page"] {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+.masthead nav a.is-external { font-weight: 500; }
 
-/* ---------- Introduction ---------- */
+/* ---------- Page headers ---------- */
 
+.page-head { padding: 72px 0 44px; }
 .intro { padding: 88px 0 60px; }
 .kicker {
   font-size: 0.8rem;
@@ -109,7 +118,7 @@ p { margin: 0 0 1.1em; }
   color: var(--ink-faint);
   margin-bottom: 1.4em;
 }
-.intro h1 { max-width: 24ch; }
+.intro h1, .page-head h1 { max-width: 24ch; }
 .standfirst {
   font-size: 1.16rem;
   line-height: 1.7;
@@ -151,7 +160,7 @@ p { margin: 0 0 1.1em; }
 
 /* ---------- Sections ---------- */
 
-.section { padding: 76px 0 64px; }
+.section { padding: 68px 0 56px; }
 .section-rule { border-top: 1px solid var(--rule); }
 .section-intro { color: var(--ink-soft); max-width: 62ch; margin-top: -0.3em; }
 
@@ -166,63 +175,151 @@ blockquote {
 }
 blockquote p { margin: 0; }
 
-/* Principles — editorial numbered list, no cards */
-.principles {
+/* ---------- Editorial numbered lists (principles, pipeline) ---------- */
+
+.ed-list {
   list-style: none;
   margin: 2.2em 0 0;
   padding: 0;
-  counter-reset: principle;
+  counter-reset: item;
 }
-.principles li {
-  counter-increment: principle;
+.ed-list li {
+  counter-increment: item;
   display: grid;
   grid-template-columns: 3.2em 1fr;
   gap: 0 8px;
   padding: 22px 0;
   border-top: 1px solid var(--rule);
 }
-.principles li::before {
-  content: counter(principle, decimal-leading-zero);
+.ed-list li::before {
+  content: counter(item, decimal-leading-zero);
   font-family: var(--serif);
   font-size: 1.05rem;
   color: var(--ink-faint);
   padding-top: 0.15em;
 }
-.principles h3 { margin: 0; }
-.principles p { margin: 0.15em 0 0; color: var(--ink-soft); max-width: 62ch; }
+.ed-list h3 { margin: 0; }
+.ed-list p { margin: 0.15em 0 0; color: var(--ink-soft); max-width: 62ch; }
 
-/* Technology pipeline — same editorial rhythm */
-.pipeline {
+/* ---------- Table of contents (home) ---------- */
+
+.toc {
   list-style: none;
-  margin: 2.2em 0 0;
+  margin: 2em 0 0;
   padding: 0;
-  counter-reset: stage;
+  counter-reset: toc;
 }
-.pipeline li {
-  counter-increment: stage;
+.toc li {
+  counter-increment: toc;
+  border-top: 1px solid var(--rule);
+}
+.toc li:last-child { border-bottom: 1px solid var(--rule); }
+.toc a {
   display: grid;
-  grid-template-columns: 3.2em 1fr;
-  gap: 0 8px;
+  grid-template-columns: 3.2em 14rem 1fr;
+  gap: 0 16px;
+  align-items: baseline;
+  padding: 20px 0;
+  text-decoration: none;
+  color: var(--ink);
+}
+.toc a::before {
+  content: counter(toc, decimal-leading-zero);
+  font-family: var(--serif);
+  color: var(--ink-faint);
+}
+.toc .toc-title { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; }
+.toc .toc-desc { color: var(--ink-soft); font-size: 0.95rem; }
+.toc a:hover .toc-title { color: var(--accent); }
+
+/* ---------- Spec tables ---------- */
+
+table.spec {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.6em 0 2.2em;
+  font-size: 0.95rem;
+}
+table.spec caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-faint);
+  padding-bottom: 10px;
+}
+table.spec th {
+  text-align: left;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1rem;
+}
+table.spec th, table.spec td {
+  padding: 12px 16px 12px 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+table.spec td { color: var(--ink-soft); }
+table.spec td strong { color: var(--ink); }
+
+/* ---------- Language directory ---------- */
+
+.lang-list { list-style: none; margin: 2em 0 0; padding: 0; }
+.lang-list li {
+  display: grid;
+  grid-template-columns: minmax(7.5em, 12em) 1fr auto;
+  gap: 16px;
+  align-items: baseline;
   padding: 22px 0;
   border-top: 1px solid var(--rule);
 }
-.pipeline li::before {
-  content: counter(stage, decimal-leading-zero);
-  font-family: var(--serif);
-  font-size: 1.05rem;
+.lang-list li:last-child { border-bottom: 1px solid var(--rule); }
+.lang-name { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; }
+.lang-en { color: var(--ink-faint); font-size: 0.85rem; display: block; }
+.lang-note { color: var(--ink-soft); font-size: 0.95rem; }
+.lang-status {
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
   color: var(--ink-faint);
-  padding-top: 0.15em;
+  white-space: nowrap;
 }
-.pipeline h3 { margin: 0; }
-.pipeline p { margin: 0.15em 0 0; color: var(--ink-soft); max-width: 62ch; }
-.further { margin-top: 2em; color: var(--ink-soft); }
 
-/* Questions */
+/* ---------- Roadmap ---------- */
+
+.phase-list { list-style: none; margin: 2em 0 0; padding: 0; }
+.phase-list li {
+  display: grid;
+  grid-template-columns: 6.5em 1fr auto;
+  gap: 16px;
+  padding: 20px 0;
+  border-top: 1px solid var(--rule);
+}
+.phase-list li:last-child { border-bottom: 1px solid var(--rule); }
+.phase-num { font-family: var(--serif); color: var(--ink-faint); }
+.phase-list h3 { margin: 0; font-size: 1.05rem; }
+.phase-list p { margin: 0.1em 0 0; color: var(--ink-soft); font-size: 0.95rem; }
+.phase-state {
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+.state-inprogress { color: var(--accent); }
+.state-planned { color: var(--ink-faint); }
+
+/* ---------- Questions ---------- */
+
 #faq h3 { font-size: 1.12rem; margin-top: 1.9em; }
 #faq h3:first-of-type { margin-top: 0.8em; }
 #faq p { color: var(--ink-soft); }
 
-/* Contribute */
+/* ---------- Contribute ---------- */
+
 .links { font-size: 1.02rem; display: flex; gap: 10px; flex-wrap: wrap; }
 .links [aria-hidden] { color: var(--ink-faint); }
 .contribute { padding-bottom: 90px; }
@@ -242,11 +339,23 @@ blockquote p { margin: 0; }
 
 /* ---------- Responsive ---------- */
 
+@media (max-width: 860px) {
+  .toc a { grid-template-columns: 3.2em 1fr; }
+  .toc .toc-desc { grid-column: 2; }
+  .lang-list li { grid-template-columns: 1fr auto; }
+  .lang-note { grid-column: 1 / -1; }
+  .phase-list li { grid-template-columns: 1fr auto; }
+  .phase-num { display: none; }
+}
+
 @media (max-width: 700px) {
   .masthead-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
   .intro { padding-top: 56px; }
-  .principles li, .pipeline li { grid-template-columns: 1fr; }
-  .principles li::before, .pipeline li::before { display: block; margin-bottom: 2px; }
+  .page-head { padding-top: 48px; }
+  .ed-list li { grid-template-columns: 1fr; }
+  .ed-list li::before { display: block; margin-bottom: 2px; }
+  table.spec { font-size: 0.88rem; }
+  .lang-name { font-size: 1.2rem; }
 }
 
 /* ---------- Dark mode ---------- */

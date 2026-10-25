@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roadmap — Neyam Vaani</title>
+  <meta name="description" content="The Neyam Vaani roadmap: ten phases from bootstrap through voice pipelines, on-device LLM, actions, knowledge base, OCR and translation, to a public beta in 90 days — plus the non-goals that protect the scope.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://neyam-opensc.github.io/neyam-vaani/roadmap.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Neyam Vaani">
+  <meta property="og:title" content="Roadmap — Neyam Vaani">
+  <meta property="og:description" content="Ten phases, ninety days, one public beta — and the non-goals that protect it.">
+  <meta property="og:url" content="https://neyam-opensc.github.io/neyam-vaani/roadmap.html">
+  <meta property="og:image" content="https://neyam-opensc.github.io/neyam-vaani/logo.png">
+  <link rel="icon" type="image/png" href="logo.png">
+  <meta name="theme-color" content="#9C4118">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <a class="wordmark" href="/"><img src="logo.png" alt="" width="34" height="23"><span>Neyam Vaani</span></a>
+      <nav aria-label="Primary">
+        <a href="principles.html">Principles</a>
+        <a href="technology.html">Technology</a>
+        <a href="languages.html">Languages</a>
+        <a href="roadmap.html" aria-current="page">Roadmap</a>
+        <a href="faq.html">Questions</a>
+        <a href="contribute.html">Contribute</a>
+        <a class="is-external" href="https://github.com/Neyam-OpenSc/neyam-vaani" rel="noopener">Source</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <div class="wrap">
+        <p class="kicker">Roadmap</p>
+        <h1>Ten phases to a public beta.</h1>
+        <p class="standfirst">
+          The plan is public, in order, and deliberately narrow: a voice
+          assistant that does twenty things excellently, in nine languages,
+          on the cheapest phone in the house. Updated as phases complete.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <ul class="phase-list">
+          <li>
+            <span class="phase-num">Phase 0</span>
+            <div>
+              <h3>Bootstrap</h3>
+              <p>Repository, charters, documentation, app skeleton, continuous integration — the project's foundation.</p>
+            </div>
+            <span class="phase-state state-inprogress">In progress</span>
+          </li>
+          <li>
+            <span class="phase-num">Phase 1</span>
+            <div>
+              <h3>Voice input</h3>
+              <p>Whisper bridge, push-to-talk, streaming transcription and language detection in the first three languages.</p>
+            </div>
+            <span class="phase-state state-planned">Planned</span>
+          </li>
+          <li>
+            <span class="phase-num">Phase 2</span>
+            <div>
+              <h3>Voice output</h3>
+              <p>Piper neural voices for nine languages: calm pacing, instant interruption, adjustable speed.</p>
+            </div>
+            <span class="phase-state state-planned">Planned</span>
+          </li>
+          <li>
+            <span class="phase-num">Phase 3</span>
+            <div>
+              <h3>On-device language model</h3>
+              <p>Qwen 2.5 via llama.cpp: streamed answers, cancellable generation, graceful behaviour under memory pressure.</p>
+            </div>
+            <span class="phase-state state-planned">Planned</span>
+          </li>
+          <li>
+            <span class="phase-num">Phase 4</span>
+            <div>
+              <h3>Intent and orchestration</h3>
+              <p>The twenty core use cases classified on-device in under 200ms, with the model as fallback.</p>
+            </div>
+            <span class="phase-state state-planned">Planned</span>
+          </li>
+          <li>
+            <span class="phase-num">Phase 5</span>
+            <div>
+              <h3>Actions</h3>
+              <p>Messages, calls, reminders, clipboard, torch — each with just-in-time permissions explained in the user's language.</p>
+            </div>
+            <span class="phase-state state-planned">Planned</span>
+          </li>
+          <li>
+            <span class="phase-num">Phase 6</span>
+            <div>
+              <h3>Knowledge base</h3>
+              <p>Offline answers from a local Wikipedia-derived and government-scheme base, retrieved and spoken without internet.</p>
+            </div>
+            <span class="phase-state state-planned">Planned</span>
+          </li>
+          <li>
+            <span class="phase-num">Phase 7</span>
+            <div>
+              <h3>Document reading</h3>
+              <p>Photograph a letter, form or medicine label; hear it read aloud and explained in plain language.</p>
+            </div>
+            <span class="phase-state state-planned">Planned</span>
+          </li>
+          <li>
+            <span class="phase-num">Phase 8</span>
+            <div>
+              <h3>Translation</h3>
+              <p>On-device NLLB translation between all nine languages, including a two-speaker conversation mode.</p>
+            </div>
+            <span class="phase-state state-planned">Planned</span>
+          </li>
+          <li>
+            <span class="phase-num">Phase 9</span>
+            <div>
+              <h3>Polish and beta</h3>
+              <p>Accessibility and tenderness audits, performance on real low-end devices, then public beta.</p>
+            </div>
+            <span class="phase-state state-planned">Planned</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section-rule">
+      <div class="wrap wrap-text">
+        <h2>What v1 will not do</h2>
+        <p>
+          Smart-home control, third-party app integrations, web browsing, image
+          generation, multi-user accounts, iOS and desktop are all out of scope
+          until the public beta ships. This is how twenty use cases get done
+          well instead of two hundred done thinly.
+        </p>
+        <h2>Follow along</h2>
+        <p>
+          Progress is tracked in
+          <a href="https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/docs/roadmap.md" rel="noopener">docs/roadmap.md</a>
+          and in the repository's issues and releases. Watch the
+          <a href="https://github.com/Neyam-OpenSc/neyam-vaani" rel="noopener">repository</a>
+          to know the moment the beta opens.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <div class="wrap">
+      <p><strong>Neyam Vaani</strong> — a project of <a href="https://github.com/Neyam-OpenSc" rel="noopener">Neyam OpenSc</a>. Open source, built for people.</p>
+      <p class="fine">Code: Apache-2.0 · Documentation: CC-BY-SA 4.0 · © 2026 Neyam OpenSc</p>
+      <p class="fine">
+        <a href="/">Home</a> <span aria-hidden="true">·</span>
+        <a href="technology.html">Technology</a> <span aria-hidden="true">·</span>
+        <a href="languages.html">Languages</a> <span aria-hidden="true">·</span>
+        <a href="contribute.html">Contribute</a> <span aria-hidden="true">·</span>
+        <a href="https://github.com/Neyam-OpenSc/neyam-vaani" rel="noopener">GitHub</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

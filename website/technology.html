@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technology — Neyam Vaani</title>
+  <meta name="description" content="How Neyam Vaani runs an offline AI assistant on a $200 Android phone: Whisper speech recognition, an on-device Qwen 2.5 language model via llama.cpp, Piper neural voices, NLLB translation, and a local knowledge base — with the full memory budget.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://neyam-opensc.github.io/neyam-vaani/technology.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Neyam Vaani">
+  <meta property="og:title" content="Technology — Neyam Vaani">
+  <meta property="og:description" content="Nine languages, a language model and two neural voices — all inside a $200 phone. The pipeline, the stack and the memory budget.">
+  <meta property="og:url" content="https://neyam-opensc.github.io/neyam-vaani/technology.html">
+  <meta property="og:image" content="https://neyam-opensc.github.io/neyam-vaani/logo.png">
+  <link rel="icon" type="image/png" href="logo.png">
+  <meta name="theme-color" content="#9C4118">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <a class="wordmark" href="/"><img src="logo.png" alt="" width="34" height="23"><span>Neyam Vaani</span></a>
+      <nav aria-label="Primary">
+        <a href="principles.html">Principles</a>
+        <a href="technology.html" aria-current="page">Technology</a>
+        <a href="languages.html">Languages</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="faq.html">Questions</a>
+        <a href="contribute.html">Contribute</a>
+        <a class="is-external" href="https://github.com/Neyam-OpenSc/neyam-vaani" rel="noopener">Source</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <div class="wrap">
+        <p class="kicker">Technology</p>
+        <h1>A complete AI stack, inside a $200 phone.</h1>
+        <p class="standfirst">
+          Vaani assembles proven open components — Whisper, Qwen&nbsp;2.5, Piper,
+          NLLB — into a pipeline that fits in 2GB of RAM. Every stage runs on the
+          device; no server is involved at any point.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2>The pipeline</h2>
+        <ol class="ed-list">
+          <li><h3>Speech recognition</h3><p>Whisper (via whisper.cpp) transcribes speech and detects which of the nine languages is being spoken; Silero voice-activity detection knows when you have finished. Audio is processed in memory and never written to storage.</p></li>
+          <li><h3>Understanding</h3><p>A fast on-device classifier routes the request to the right handler in under 200ms. Qwen 2.5 — a multilingual model small enough for a phone, running via llama.cpp — handles questions, drafting and explanation, streaming its answer as it generates.</p></li>
+          <li><h3>Knowledge and action</h3><p>Factual questions draw on a local knowledge base (Wikipedia-derived content, government scheme information) using hybrid full-text and semantic search. Requests that do something — send, call, remind — are carried out through standard Android actions, with your confirmation.</p></li>
+          <li><h3>Speech output</h3><p>Piper neural voices speak the reply in your language, at a calm default pace, and stop instantly when you begin talking again.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-rule">
+      <div class="wrap">
+        <h2>The stack, and why</h2>
+        <table class="spec">
+          <caption>Component choices</caption>
+          <thead><tr><th>Layer</th><th>Choice</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Application</td><td><strong>Flutter</strong></td><td>One codebase, smooth on low-end Android, mature voice plugin ecosystem</td></tr>
+            <tr><td>Speech to text</td><td><strong>Whisper</strong> (whisper.cpp)</td><td>Best multilingual accuracy per megabyte; runs offline, quantized</td></tr>
+            <tr><td>Voice activity</td><td><strong>Silero VAD</strong></td><td>Reliable end-of-speech detection in a few megabytes</td></tr>
+            <tr><td>Language model</td><td><strong>Qwen 2.5</strong> (1.5B / 3B, GGUF)</td><td>Best multilingual quality under 3B parameters; Apache-2.0; covers all nine languages</td></tr>
+            <tr><td>Model runtime</td><td><strong>llama.cpp</strong></td><td>Fastest on-device inference on ARM; mature and widely audited</td></tr>
+            <tr><td>Speech synthesis</td><td><strong>Piper</strong></td><td>Neural voices at ~5MB each; CPU-only; MIT licensed; Indian-language voices</td></tr>
+            <tr><td>Translation</td><td><strong>NLLB-200</strong> (distilled)</td><td>Two-hundred-language coverage in a phone-sized model</td></tr>
+            <tr><td>Knowledge base</td><td><strong>SQLite</strong> (FTS5) + embeddings</td><td>Already on every Android device; fast local full-text and semantic search</td></tr>
+            <tr><td>Storage</td><td><strong>SQLCipher</strong></td><td>AES-256 encrypted database; keys held in the Android Keystore</td></tr>
+            <tr><td>Document reading</td><td><strong>Tesseract 5</strong> + ML Kit</td><td>On-device OCR for letters, forms and labels</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section section-rule">
+      <div class="wrap">
+        <h2>The memory budget</h2>
+        <p class="section-intro">
+          The hard constraint. Everything below runs on a 2GB-RAM phone — the
+          larger model swaps with the speech models rather than co-residing,
+          which is why the orchestration layer exists.
+        </p>
+        <table class="spec">
+          <caption>On-device footprint (one language installed)</caption>
+          <thead><tr><th>Component</th><th>Storage</th><th>RAM (loaded)</th></tr></thead>
+          <tbody>
+            <tr><td>Whisper-tiny (speech to text)</td><td>75MB</td><td>200MB</td></tr>
+            <tr><td>Piper voices (two per language)</td><td>30MB</td><td>100MB</td></tr>
+            <tr><td>Qwen 2.5-3B, 4-bit quantized</td><td>1.8GB</td><td>2.5GB (sustained during inference)</td></tr>
+            <tr><td>NLLB-200 distilled (translation)</td><td>350MB</td><td>500MB</td></tr>
+            <tr><td>Embedding model (semantic search)</td><td>90MB</td><td>200MB</td></tr>
+            <tr><td><strong>Total, one language</strong></td><td><strong>~2.4GB</strong></td><td><strong>~3.5GB peak</strong></td></tr>
+          </tbody>
+        </table>
+        <p class="wrap-text">
+          Phones with more RAM load the larger model; phones with less load the
+          1.5B variant automatically. Language packs (~600–900MB each) install
+          on demand, so the app download stays under 80MB. The full
+          specification, including per-language pack contents and signing, is in
+          <a href="https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/docs/architecture.md" rel="noopener">docs/architecture.md</a>
+          and <a href="https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/docs/language-pack-spec.md" rel="noopener">docs/language-pack-spec.md</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section-rule">
+      <div class="wrap wrap-text">
+        <h2>What about the cloud?</h2>
+        <p>
+          Nothing. There is no server, no API key, no account. The only network
+          traffic the app can ever generate is an explicit, opt-in language-pack
+          download, verified by signature before install. This is not a
+          configuration default — it is the architecture.
+        </p>
+        <p><a href="privacy.html">Read the Privacy Charter →</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <div class="wrap">
+      <p><strong>Neyam Vaani</strong> — a project of <a href="https://github.com/Neyam-OpenSc" rel="noopener">Neyam OpenSc</a>. Open source, built for people.</p>
+      <p class="fine">Code: Apache-2.0 · Documentation: CC-BY-SA 4.0 · © 2026 Neyam OpenSc</p>
+      <p class="fine">
+        <a href="/">Home</a> <span aria-hidden="true">·</span>
+        <a href="principles.html">Principles</a> <span aria-hidden="true">·</span>
+        <a href="languages.html">Languages</a> <span aria-hidden="true">·</span>
+        <a href="roadmap.html">Roadmap</a> <span aria-hidden="true">·</span>
+        <a href="https://github.com/Neyam-OpenSc/neyam-vaani" rel="noopener">GitHub</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

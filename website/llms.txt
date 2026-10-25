@@ -14,6 +14,17 @@ Key facts:
 - Design principles: offline-first, cheap-hardware-first, voice-first, vernacular-first, privacy-by-default, Tender UX (no dark patterns), grandmother-usable
 - Privacy: all processing on-device; voice recordings never stored; history encrypted on-device (SQLCipher) and user-deletable; the only network use is opt-in language-pack downloads
 
+## Site pages
+
+- [Home](https://neyam-opensc.github.io/neyam-vaani/): Overview, facts at a glance, and a table of contents for the site.
+- [Principles](https://neyam-opensc.github.io/neyam-vaani/principles.html): The seven non-negotiable commitments (offline-first, cheap-hardware-first, voice-first, vernacular-first, private by default, Tender UX, grandmother-usable), the Tender UX test, and the voice personality rules.
+- [Technology](https://neyam-opensc.github.io/neyam-vaani/technology.html): The on-device pipeline (Whisper → classifier/Qwen 2.5 → knowledge base/actions → Piper), the component stack with rationale, and the 2GB-RAM memory budget.
+- [Languages](https://neyam-opensc.github.io/neyam-vaani/languages.html): All nine languages with endonyms (தமிழ், हिन्दी, বাংলা, ಕನ್ನಡ, తెలుగు, मराठी, भोजपुरी, मैथिली), what parity means, and what each language pack contains.
+- [Roadmap](https://neyam-opensc.github.io/neyam-vaani/roadmap.html): The ten phases from bootstrap to public beta, and v1's explicit non-goals.
+- [Privacy](https://neyam-opensc.github.io/neyam-vaani/privacy.html): The immutable Privacy Charter — per-datatype guarantees, the never list, permission policy, and enforcement.
+- [Questions (FAQ)](https://neyam-opensc.github.io/neyam-vaani/faq.html): Short answers on offline capability, cost, phones, languages, voice data, and release timing.
+- [Contribute](https://neyam-opensc.github.io/neyam-vaani/contribute.html): Contribution roles — especially native-speaker language stewards — and first steps.
+
 ## Docs
 
 - [Architecture — full pipeline, stack decisions, on-device model budget](https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/docs/architecture.md): How Vaani works without internet: Whisper STT → intent classifier → on-device Qwen 2.5 LLM → local knowledge base (SQLite FTS5 + embeddings) → Piper TTS, plus Android action intents for SMS, calls, and reminders.

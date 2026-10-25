@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy — Neyam Vaani</title>
+  <meta name="description" content="The Neyam Vaani Privacy Charter: all AI processing on-device, no cloud, no accounts, no telemetry, no ads. Voice recordings are never stored. History is encrypted on-device and deletable at any time. Immutable guarantees.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://neyam-opensc.github.io/neyam-vaani/privacy.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Neyam Vaani">
+  <meta property="og:title" content="Privacy — Neyam Vaani">
+  <meta property="og:description" content="The user is the only person who ever sees their data. No cloud, no accounts, no telemetry, no ads — by architecture, not by policy.">
+  <meta property="og:url" content="https://neyam-opensc.github.io/neyam-vaani/privacy.html">
+  <meta property="og:image" content="https://neyam-opensc.github.io/neyam-vaani/logo.png">
+  <link rel="icon" type="image/png" href="logo.png">
+  <meta name="theme-color" content="#9C4118">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <a class="wordmark" href="/"><img src="logo.png" alt="" width="34" height="23"><span>Neyam Vaani</span></a>
+      <nav aria-label="Primary">
+        <a href="principles.html">Principles</a>
+        <a href="technology.html">Technology</a>
+        <a href="languages.html">Languages</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="faq.html">Questions</a>
+        <a href="contribute.html">Contribute</a>
+        <a class="is-external" href="https://github.com/Neyam-OpenSc/neyam-vaani" rel="noopener">Source</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <div class="wrap wrap-text">
+        <p class="kicker">Privacy</p>
+        <h1>Private by architecture, not by policy.</h1>
+        <p class="standfirst">
+          The user is the only person who ever sees their data. There is no
+          cloud to send it to, no account to tie it to, and no telemetry
+          system to feed. This is immutable: no feature, sponsor or roadmap
+          item may violate it, and any contribution that conflicts with it is
+          rejected.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <table class="spec">
+          <caption>What happens to each kind of data</caption>
+          <thead><tr><th>Data</th><th>Where it lives</th><th>How long</th><th>Ever sent anywhere</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Voice recordings</strong></td><td>Memory only</td><td>Never written to storage</td><td>Never</td></tr>
+            <tr><td><strong>Transcripts and conversations</strong></td><td>Encrypted on-device database</td><td>30 days by default; deletable anytime</td><td>Never</td></tr>
+            <tr><td><strong>Scanned documents</strong></td><td>Memory only</td><td>Unless you choose to save (encrypted)</td><td>Never</td></tr>
+            <tr><td><strong>Notes and reminders</strong></td><td>Encrypted on-device database</td><td>Until you delete them</td><td>Never</td></tr>
+            <tr><td><strong>Contacts and location</strong></td><td>Memory, for the action you asked</td><td>Never stored</td><td>Never</td></tr>
+            <tr><td><strong>Usage analytics</strong></td><td>Do not exist</td><td>—</td><td>Never</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section section-rule">
+      <div class="wrap wrap-text">
+        <h2>The never list</h2>
+        <p>
+          Advertising, in any form, ever. Selling or sharing user data — there
+          is none to sell. Telemetry, crash reporting or analytics, not even
+          "anonymized". Accounts or sign-ins. Cloud AI calls. Any dependency
+          that phones home.
+        </p>
+        <h2>Permissions</h2>
+        <p>
+          Each permission is requested only when a specific action needs it,
+          with a one-sentence explanation in your language: the microphone is
+          requested "to hear you"; SMS, "to send the message you asked for".
+          Nothing is requested at install time, and nothing is requested twice.
+        </p>
+        <h2>How this is enforced</h2>
+        <p>
+          Every release is audited with a network monitor — zero unexpected
+          traffic. Every new dependency documents its network behaviour in
+          review. The only traffic the app can ever generate is an explicit,
+          opt-in, signature-verified language-pack download over TLS.
+        </p>
+        <p>
+          The complete charter, including the security implementation
+          (SQLCipher encryption, Android Keystore key storage, signed packs),
+          lives in
+          <a href="https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/PRIVACY_CHARTER.md" rel="noopener">PRIVACY_CHARTER.md</a>
+          in the repository.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <div class="wrap">
+      <p><strong>Neyam Vaani</strong> — a project of <a href="https://github.com/Neyam-OpenSc" rel="noopener">Neyam OpenSc</a>. Open source, built for people.</p>
+      <p class="fine">Code: Apache-2.0 · Documentation: CC-BY-SA 4.0 · © 2026 Neyam OpenSc</p>
+      <p class="fine">
+        <a href="/">Home</a> <span aria-hidden="true">·</span>
+        <a href="principles.html">Principles</a> <span aria-hidden="true">·</span>
+        <a href="technology.html">Technology</a> <span aria-hidden="true">·</span>
+        <a href="faq.html">Questions</a> <span aria-hidden="true">·</span>
+        <a href="https://github.com/Neyam-OpenSc/neyam-vaani" rel="noopener">GitHub</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questions — Neyam Vaani</title>
+  <meta name="description" content="Does Neyam Vaani work without internet? What does it cost? Which phones are supported, what happens to your voice data, and when is the release? Direct answers.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://neyam-opensc.github.io/neyam-vaani/faq.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Neyam Vaani">
+  <meta property="og:title" content="Questions — Neyam Vaani">
+  <meta property="og:description" content="Does it really work offline? What does it cost? What happens to your voice data? Direct answers.">
+  <meta property="og:url" content="https://neyam-opensc.github.io/neyam-vaani/faq.html">
+  <meta property="og:image" content="https://neyam-opensc.github.io/neyam-vaani/logo.png">
+  <link rel="icon" type="image/png" href="logo.png">
+  <meta name="theme-color" content="#9C4118">
+  <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Neyam Vaani?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Neyam Vaani is a free, open source, voice-first AI assistant for Android that runs entirely offline on low-cost phones (2GB RAM) and speaks nine Indian languages: Tamil, Hindi, Bengali, Kannada, Telugu, Marathi, Bhojpuri, Maithili and English. You speak to it; it speaks back. It answers questions, drafts and sends messages, reads documents aloud, translates, sets reminders and performs phone actions by voice." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Neyam Vaani work without internet?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Vaani is offline-first: 100% of core features work with zero connectivity. Speech recognition (Whisper), speech synthesis (Piper), the language model (Qwen 2.5 via llama.cpp) and translation (NLLB-200) all run on the phone itself. The only optional network use is downloading language packs and updates, which is always explicit and opt-in." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Neyam Vaani free and open source?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — Apache-2.0 licensed, developed openly at github.com/Neyam-OpenSc/neyam-vaani. All features are free forever: no ads, no accounts, no premium tier locking core features. It is built by Neyam OpenSc, an open source organization." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which languages does Neyam Vaani support?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Nine, at full parity rather than as afterthoughts: Tamil, Hindi, Bengali, Kannada, Telugu, Marathi, Bhojpuri, Maithili and English. Bhojpuri and Maithili are deliberately included even though they are low-resource languages that commercial assistants skip. Users install per-language packs and can use several languages in one conversation." }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Neyam Vaani protect privacy?",
+        "acceptedAnswer": { "@type": "Answer", "text": "All AI processing happens on the device; nothing is sent to any cloud. There are no accounts, no telemetry, no analytics and no advertising. Voice recordings exist only in memory and are never stored. Conversation history is kept in an encrypted on-device database and can be deleted by the user at any time. These guarantees are codified in the project's immutable Privacy Charter." }
+      },
+      {
+        "@type": "Question",
+        "name": "What phones can run Neyam Vaani?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Android phones with as little as 2GB RAM — for example a Redmi 9A. The team optimizes explicitly for $200 phones: the app loads smaller AI models on low-RAM devices, keeps the APK under 80MB, and downloads language packs on demand. Cold start target is under 3 seconds." }
+      },
+      {
+        "@type": "Question",
+        "name": "When will Neyam Vaani be released?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The project is in Phase 0 (bootstrap) of a 90-day roadmap to public beta, developed in the open. Follow the roadmap and releases on GitHub at github.com/Neyam-OpenSc/neyam-vaani." }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <a class="wordmark" href="/"><img src="logo.png" alt="" width="34" height="23"><span>Neyam Vaani</span></a>
+      <nav aria-label="Primary">
+        <a href="principles.html">Principles</a>
+        <a href="technology.html">Technology</a>
+        <a href="languages.html">Languages</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="faq.html" aria-current="page">Questions</a>
+        <a href="contribute.html">Contribute</a>
+        <a class="is-external" href="https://github.com/Neyam-OpenSc/neyam-vaani" rel="noopener">Source</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head" id="faq">
+      <div class="wrap wrap-text">
+        <p class="kicker">Questions</p>
+        <h1>Direct answers.</h1>
+        <p class="standfirst">The questions people actually ask, answered the way
+        Vaani itself answers: briefly, plainly, and without hedging.</p>
+
+        <h3>What is Neyam Vaani?</h3>
+        <p>A free, open source, voice-first AI assistant for Android that runs
+        entirely offline on low-cost phones and speaks nine Indian languages —
+        Tamil, Hindi, Bengali, Kannada, Telugu, Marathi, Bhojpuri, Maithili and
+        English. You speak to it; it speaks back.</p>
+
+        <h3>Does it really work without internet?</h3>
+        <p>Yes — 100% of core features are offline. Speech recognition, the
+        language model, translation and text-to-speech all run on the phone.
+        The only network use is optional, opt-in language pack downloads.</p>
+
+        <h3>What does it cost?</h3>
+        <p>Nothing, ever. Apache-2.0 open source. No ads, no accounts, no
+        premium tier — these are permanent product decisions written into the
+        project charter.</p>
+
+        <h3>Which languages are supported?</h3>
+        <p>Nine, at full parity — including Bhojpuri and Maithili, which
+        commercial assistants skip. Each language ships as a downloadable pack
+        reviewed by a native-speaker steward. See <a href="languages.html">Languages</a>.</p>
+
+        <h3>Which phones are supported?</h3>
+        <p>Android phones with as little as 2GB RAM (e.g., Redmi 9A). The app
+        auto-selects smaller AI models on low-RAM devices and keeps its
+        download under 80MB.</p>
+
+        <h3>What happens to my voice data?</h3>
+        <p>Voice exists in memory only and is never stored. Conversation text is
+        encrypted on-device (SQLCipher) and deletable at any time. Nothing is
+        ever uploaded — there is no server to upload to. See
+        <a href="privacy.html">Privacy</a>.</p>
+
+        <h3>Who is building this?</h3>
+        <p><a href="https://github.com/Neyam-OpenSc" rel="noopener">Neyam OpenSc</a>,
+        an open source organization — with native-speaker language stewards
+        owning quality for each language.</p>
+
+        <h3>When can I try it?</h3>
+        <p>The project is in Phase 0 of a <a href="roadmap.html">90-day
+        roadmap</a> to public beta. Follow
+        <a href="https://github.com/Neyam-OpenSc/neyam-vaani" rel="noopener">the repository</a>
+        for releases.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <div class="wrap">
+      <p><strong>Neyam Vaani</strong> — a project of <a href="https://github.com/Neyam-OpenSc" rel="noopener">Neyam OpenSc</a>. Open source, built for people.</p>
+      <p class="fine">Code: Apache-2.0 · Documentation: CC-BY-SA 4.0 · © 2026 Neyam OpenSc</p>
+      <p class="fine">
+        <a href="/">Home</a> <span aria-hidden="true">·</span>
+        <a href="principles.html">Principles</a> <span aria-hidden="true">·</span>
+        <a href="technology.html">Technology</a> <span aria-hidden="true">·</span>
+        <a href="privacy.html">Privacy</a> <span aria-hidden="true">·</span>
+        <a href="contribute.html">Contribute</a> <span aria-hidden="true">·</span>
+        <a href="https://github.com/Neyam-OpenSc/neyam-vaani" rel="noopener">GitHub</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
