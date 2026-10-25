@@ -19,18 +19,16 @@ class SettingsScreen extends ConsumerWidget {
         children: [
           const ListTile(
             title: Text('Your language'), // TODO(l10n)
-            subtitle: Text('Used for listening and speaking'),
-            // TODO(l10n)
+            subtitle: Text('Used for listening and speaking'), // TODO(l10n)
           ),
           for (final String code in kSupportedLanguages)
-            RadioListTile<String>(
-              value: code,
-              groupValue: selected,
+            ListTile(
+              selected: selected == code,
               title: Text(kLanguageEndonyms[code] ?? code),
-              onChanged: (String? value) {
-                if (value != null) {
-                  ref.read(selectedLanguageProvider.notifier).state = value;
-                }
+              trailing:
+                  selected == code ? const Icon(Icons.check_rounded) : null,
+              onTap: () {
+                ref.read(selectedLanguageProvider.notifier).state = code;
               },
             ),
           const Divider(),
