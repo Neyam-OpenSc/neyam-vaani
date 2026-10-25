@@ -133,6 +133,144 @@ p { margin: 0 0 1.1em; }
   letter-spacing: 0.02em;
 }
 
+/* ---------- Hero voice visual ----------
+   A breathing orb: ripples radiate like a voice leaving the phone, a
+   waveform pulses inside, and the greeting cycles through all nine
+   scripts. Pure CSS; still and quiet under reduced motion. */
+
+.intro-grid { display: grid; gap: 48px; align-items: center; }
+@media (min-width: 1000px) {
+  .intro-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+}
+
+.voice-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  padding: 10px 0;
+  animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.3, 1) 0.4s both;
+}
+
+.orb {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  max-width: 70vw;
+  max-height: 70vw;
+  display: grid;
+  place-items: center;
+}
+.orb::before {
+  content: "";
+  position: absolute;
+  inset: 19%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 28%, var(--accent-soft), var(--accent));
+  box-shadow: 0 22px 55px rgba(156, 65, 24, 0.30);
+  animation: breathe 4.6s ease-in-out infinite;
+}
+
+.ring {
+  position: absolute;
+  inset: 19%;
+  border-radius: 50%;
+  border: 1px solid var(--accent-soft);
+  opacity: 0;
+  animation: ripple 3.9s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+}
+.ring-b { animation-delay: 1.3s; }
+.ring-c { animation-delay: 2.6s; }
+
+.wave {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 64px;
+}
+.wave span {
+  width: 6px;
+  border-radius: 3px;
+  background: var(--paper);
+  height: calc(var(--wh) * 1%);
+  transform: scaleY(0.35);
+  animation: wavebar 1.25s ease-in-out calc(var(--wd) * 1s) infinite alternate;
+}
+.wave span:nth-child(1) { --wh: 34; --wd: 0;    }
+.wave span:nth-child(2) { --wh: 58; --wd: 0.10; }
+.wave span:nth-child(3) { --wh: 84; --wd: 0.22; }
+.wave span:nth-child(4) { --wh: 100; --wd: 0.05;}
+.wave span:nth-child(5) { --wh: 72; --wd: 0.30; }
+.wave span:nth-child(6) { --wh: 94; --wd: 0.16; }
+.wave span:nth-child(7) { --wh: 52; --wd: 0.26; }
+.wave span:nth-child(8) { --wh: 78; --wd: 0.08; }
+.wave span:nth-child(9) { --wh: 40; --wd: 0.20; }
+
+@keyframes wavebar {
+  from { transform: scaleY(0.3); }
+  to   { transform: scaleY(1); }
+}
+@keyframes ripple {
+  0%   { transform: scale(0.78); opacity: 0.55; }
+  70%  { opacity: 0.12; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.04); }
+}
+
+.greet-rotate {
+  position: relative;
+  height: 1.7em;
+  width: 100%;
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+.greet-rotate span {
+  position: absolute;
+  inset: 0;
+  text-align: center;
+  opacity: 0;
+  animation: greet-cycle 16s ease-in-out infinite;
+}
+.greet-rotate span:nth-child(1) { animation-delay: 0s; }
+.greet-rotate span:nth-child(2) { animation-delay: 2s; }
+.greet-rotate span:nth-child(3) { animation-delay: 4s; }
+.greet-rotate span:nth-child(4) { animation-delay: 6s; }
+.greet-rotate span:nth-child(5) { animation-delay: 8s; }
+.greet-rotate span:nth-child(6) { animation-delay: 10s; }
+.greet-rotate span:nth-child(7) { animation-delay: 12s; }
+.greet-rotate span:nth-child(8) { animation-delay: 14s; }
+
+@keyframes greet-cycle {
+  0%    { opacity: 0; transform: translateY(10px); }
+  5.5%  { opacity: 1; transform: none; }
+  10%   { opacity: 1; transform: none; }
+  14%   { opacity: 0; transform: translateY(-10px); }
+  100%  { opacity: 0; }
+}
+
+.voice-caption {
+  margin: 0;
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--ink-faint);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb::before, .ring, .wave span, .greet-rotate span, .voice-visual {
+    animation: none;
+  }
+  .wave span { transform: scaleY(0.75); }
+  .greet-rotate span:first-child { opacity: 1; }
+}
+
 /* ---------- At a glance ---------- */
 
 .glance { border-block: 1px solid var(--rule); background: var(--paper-deep); }
