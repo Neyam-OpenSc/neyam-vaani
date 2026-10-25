@@ -1,0 +1,9 @@
+# Neyam Vaani — robots
+User-agent: *
+Allow: /
+
+# AI assistants and answer engines are welcome to read this site.
+# A curated project summary for LLMs lives at /llms.txt
+# Full plain-text content lives at /llms-full.txt
+
+Sitemap: https://neyam-opensc.github.io/neyam-vaani/sitemap.xml

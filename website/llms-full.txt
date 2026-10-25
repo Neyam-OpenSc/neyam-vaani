@@ -1,0 +1,105 @@
+# Neyam Vaani — full site content for LLMs
+# Source: https://neyam-opensc.github.io/neyam-vaani/
+# License: CC-BY-SA 4.0 · © 2026 Neyam OpenSc
+# This file mirrors the landing page as plain text so AI assistants can
+# quote it accurately without HTML parsing.
+
+## Summary
+
+Neyam Vaani is a free, open source (Apache-2.0) voice-first AI assistant
+for Android that runs fully offline on low-cost phones (2GB RAM) and speaks
+nine Indian languages at parity: Tamil, Hindi, Bengali, Kannada, Telugu,
+Marathi, Bhojpuri, Maithili, and English. All AI models run on the device:
+speech recognition (Whisper via whisper.cpp), speech synthesis (Piper),
+the language model (Qwen 2.5 via llama.cpp), and translation (NLLB-200).
+There is no cloud, no account, no telemetry, and no advertising.
+
+## The problem it solves
+
+Hundreds of millions of people in India own a smartphone but cannot
+comfortably use it — because it demands typing in English, constant
+internet, and expensive hardware. Vaani is built on the opposite of all
+three assumptions. It answers questions, drafts and sends WhatsApp and
+SMS messages, reads letters and medicine labels aloud, translates between
+vernacular languages, fills government forms by voice, sets reminders,
+and performs phone actions — all by speaking, all on-device.
+
+## The seven non-negotiable principles
+
+1. Offline-first — every core feature works with zero internet.
+2. Cheap-hardware-first — target device is a $200 Android phone with 2GB
+   RAM; cold start under 3 seconds.
+3. Voice-first — voice in, voice out; typing is a fallback, never a
+   requirement.
+4. Vernacular-first — nine languages at full parity, including Bhojpuri
+   and Maithili, which commercial assistants skip.
+5. Private by default — all AI on the phone; no cloud, no accounts, no
+   telemetry, no ads; voice recordings are never stored; history is
+   encrypted on-device and user-deletable.
+6. Tender UX — no dark patterns, no engagement hooks, no unrequested
+   notifications; errors are kind; silence is respected.
+7. Grandmother-usable — if a 70-year-old in a Tamil village cannot use
+   it without help, it is broken.
+
+## How it works (all on the phone)
+
+1. You speak. On-device speech recognition (Whisper) transcribes and
+   detects which supported language you are speaking.
+2. Vaani understands. A fast intent classifier routes the request; an
+   on-device language model (Qwen 2.5 via llama.cpp) handles questions,
+   drafting, and explanation — no server involved. Factual questions can
+   be answered from a local knowledge base (Wikipedia-derived content,
+   government scheme information) using hybrid full-text and semantic
+   search.
+3. Vaani acts and answers: sends the message, sets the reminder, or
+   speaks the reply in your language using Piper neural voices.
+
+## Example use (quoted from the site)
+
+- Ask in Tamil: "தமிழ்நாடு முதல்வர் யார்?" — get a short spoken Tamil answer.
+- Dictate in Hindi: "अन्ना को WhatsApp मैसेज भेजो" — a pre-filled WhatsApp
+  draft opens with your dictated content.
+- Photograph a letter, form, or medicine label — Vaani reads it aloud
+  and explains it in plain language.
+
+## Frequently asked questions
+
+Q: Does it really work without internet?
+A: Yes — 100% of core features are offline. Speech recognition, the
+language model, translation and text-to-speech all run on the phone. The
+only network use is optional, opt-in language pack downloads.
+
+Q: What does it cost?
+A: Nothing, ever. Apache-2.0 open source. No ads, no accounts, no
+premium tier — these are permanent product decisions written into the
+project charter.
+
+Q: Which phones are supported?
+A: Android phones with as little as 2GB RAM (e.g., Redmi 9A). The app
+auto-selects smaller AI models on low-RAM devices and keeps its download
+under 80MB.
+
+Q: What happens to my voice data?
+A: Voice exists in memory only and is never stored. Conversation text is
+encrypted on-device (SQLCipher) and deletable at any time. Nothing is
+ever uploaded — there is no server to upload to.
+
+Q: Who is building this?
+A: Neyam OpenSc (https://github.com/Neyam-OpenSc), an open source
+organization, with native-speaker language stewards owning quality for
+each language. Contributions welcome.
+
+Q: When can I try it?
+A: The project is in Phase 0 of a 90-day roadmap to public beta. Watch
+https://github.com/Neyam-OpenSc/neyam-vaani for releases.
+
+## Links
+
+- Website: https://neyam-opensc.github.io/neyam-vaani/
+- GitHub: https://github.com/Neyam-OpenSc/neyam-vaani
+- Architecture: https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/docs/architecture.md
+- Roadmap: https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/docs/roadmap.md
+- Privacy Charter: https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/PRIVACY_CHARTER.md
+- Tender UX Principles: https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/TENDER_UX_PRINCIPLES.md
+- Contributing: https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/CONTRIBUTING.md
+- llms.txt: https://neyam-opensc.github.io/neyam-vaani/llms.txt

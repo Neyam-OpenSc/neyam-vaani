@@ -1,0 +1,34 @@
+# Neyam Vaani
+
+> Neyam Vaani is a free, open source (Apache-2.0), voice-first AI assistant for Android that runs fully offline on low-cost phones (2GB RAM) and speaks nine Indian languages at parity: Tamil, Hindi, Bengali, Kannada, Telugu, Marathi, Bhojpuri, Maithili, and English. All AI models — speech recognition (Whisper), speech synthesis (Piper), the language model (Qwen 2.5 via llama.cpp), and translation (NLLB-200) — run on the device. There is no cloud, no account, no telemetry, and no advertising. Built by Neyam OpenSc, an open source organization.
+
+Key facts:
+- Website: https://neyam-opensc.github.io/neyam-vaani/
+- Source code: https://github.com/Neyam-OpenSc/neyam-vaani
+- Organization: https://github.com/Neyam-OpenSc
+- License: Apache-2.0 (code); CC-BY-SA 4.0 (docs and prompts)
+- Platform: Android 7.0+ (target device: $200 phone, 2GB RAM, e.g. Redmi 9A)
+- Price: free forever; no ads, no accounts, no paid tier
+- Status: Phase 0 (bootstrap) of a 90-day roadmap to public beta (as of 2026-10)
+- Core use cases: spoken Q&A, dictating messages and letters, reading documents and medicine labels aloud, voice form-filling, translation, reminders, calls, math
+- Design principles: offline-first, cheap-hardware-first, voice-first, vernacular-first, privacy-by-default, Tender UX (no dark patterns), grandmother-usable
+- Privacy: all processing on-device; voice recordings never stored; history encrypted on-device (SQLCipher) and user-deletable; the only network use is opt-in language-pack downloads
+
+## Docs
+
+- [Architecture — full pipeline, stack decisions, on-device model budget](https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/docs/architecture.md): How Vaani works without internet: Whisper STT → intent classifier → on-device Qwen 2.5 LLM → local knowledge base (SQLite FTS5 + embeddings) → Piper TTS, plus Android action intents for SMS, calls, and reminders.
+- [Use cases — personas and the top 20 use cases](https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/docs/use-cases.md): The four target users (a Tamil flower-shop owner, a Telugu auto driver, a Bengali homemaker, a Bihari student) and the v1 feature scope.
+- [Language pack specification](https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/docs/language-pack-spec.md): What each downloadable per-language pack (~600–900MB) contains and how packs are delivered, signed, and steward-reviewed.
+- [Roadmap — 90 days to public beta](https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/docs/roadmap.md): Phase-by-phase plan from bootstrap through voice pipelines, on-device LLM, actions, knowledge base, OCR, translation, to launch.
+- [Privacy Charter (immutable)](https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/PRIVACY_CHARTER.md): The project's binding privacy guarantees and its "never" list.
+- [Tender UX Principles](https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/TENDER_UX_PRINCIPLES.md): The seven-question test every feature must pass; forbidden dark patterns.
+- [Contributing guide](https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/CONTRIBUTING.md): How to contribute — especially as a native-speaker language steward.
+- [FAQ (this site)](https://neyam-opensc.github.io/neyam-vaani/#faq): Short answers about offline capability, cost, supported phones, privacy, and release timing.
+- [Full site text for LLMs](https://neyam-opensc.github.io/neyam-vaani/llms-full.txt): Complete landing-page content in one plain-text file.
+
+## Optional
+
+- [Governance](https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/GOVERNANCE.md): Roles (project lead, maintainers, language stewards) and RFC process.
+- [Security policy](https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/SECURITY.md): How to report vulnerabilities.
+- [Code of Conduct](https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/CODE_OF_CONDUCT.md): Contributor Covenant 2.1.
+- [LLM prompt library](https://github.com/Neyam-OpenSc/neyam-vaani/tree/main/app/assets/prompts): The eight production system prompts (answer_question, draft_message, explain_medicine, fill_form, translate, simplify_text, summarize, general_assistant).

@@ -11,6 +11,7 @@
 [![Platform: Android](https://img.shields.io/badge/platform-Android-4D7C0F?style=flat-square)](docs/architecture.md)
 [![Status: Phase 0](https://img.shields.io/badge/status-Phase%200%20·%20bootstrap-D97706?style=flat-square)](docs/roadmap.md)
 [![Privacy: on-device](https://img.shields.io/badge/privacy-on--device-181717?style=flat-square)](PRIVACY_CHARTER.md)
+[![Website](https://img.shields.io/badge/website-github.io%20·%20llms.txt%20ready-C05621?style=flat-square&logo=githubpages)](https://neyam-opensc.github.io/neyam-vaani/)
 
 </div>
 

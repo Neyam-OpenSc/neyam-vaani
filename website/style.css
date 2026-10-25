@@ -1,0 +1,139 @@
+/* Neyam Vaani website — terracotta brand, system fonts, zero dependencies.
+   Accessible contrast, responsive, print-friendly. */
+
+:root {
+  --terracotta: #C05621;
+  --terracotta-deep: #9C4118;
+  --amber: #D97706;
+  --olive: #4D7C0F;
+  --cream: #FDF7EB;
+  --cream-deep: #F7EBD7;
+  --ink: #2D2419;
+  --ink-soft: #5C4F3E;
+  --line: #E7D9C2;
+  --white: #FFFFFF;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans",
+    "Noto Sans Devanagari", "Noto Sans Tamil", "Noto Sans Bengali", "Noto Sans Kannada",
+    "Noto Sans Telugu", sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+.wrap-narrow { max-width: 760px; }
+
+a { color: var(--terracotta-deep); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--amber); }
+
+h1, h2, h3 { line-height: 1.2; font-weight: 700; letter-spacing: -0.01em; }
+h1 { font-size: clamp(1.9rem, 4.5vw, 3rem); margin: 0.4em 0; }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin: 0 0 0.6em; }
+h3 { font-size: 1.08rem; margin: 0 0 0.35em; }
+
+/* Header */
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(253, 247, 235, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 12px; padding-bottom: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.15rem; text-decoration: none; color: var(--ink); }
+.site-header nav { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.site-header nav a { text-decoration: none; color: var(--ink-soft); font-weight: 500; }
+.site-header nav a:hover { color: var(--terracotta-deep); }
+
+/* Buttons */
+.btn {
+  display: inline-block; padding: 10px 20px; border-radius: 999px;
+  border: 1.5px solid var(--terracotta); color: var(--terracotta-deep);
+  font-weight: 600; text-decoration: none; transition: all 0.15s ease;
+}
+.btn:hover { background: var(--cream-deep); color: var(--terracotta-deep); }
+.btn-primary { background: var(--terracotta); color: var(--white); }
+.btn-primary:hover { background: var(--terracotta-deep); color: var(--white); }
+.btn-small { padding: 6px 14px; font-size: 0.92rem; }
+
+/* Hero */
+.hero { padding: 72px 0 56px; text-align: center; }
+.greetings { color: var(--ink-soft); font-size: 1.05rem; letter-spacing: 0.02em; }
+.hero h1 { max-width: 21ch; margin-inline: auto; }
+.hero h1 em { font-style: normal; color: var(--terracotta); }
+.lede { max-width: 62ch; margin: 0 auto 28px; font-size: 1.15rem; color: var(--ink-soft); }
+.cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 34px; }
+.facts { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; list-style: none; margin: 0; padding: 0; color: var(--ink-soft); }
+.facts strong { display: block; font-size: 1.45rem; color: var(--terracotta-deep); }
+
+/* Sections */
+.section { padding: 64px 0; }
+.section-alt { background: var(--white); border-block: 1px solid var(--line); }
+.section-note { color: var(--ink-soft); margin-top: -0.4em; }
+
+.grid { display: grid; gap: 18px; margin-top: 26px; }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+
+.card {
+  background: var(--white); border: 1px solid var(--line); border-radius: 14px;
+  padding: 22px 24px;
+}
+.section-alt .card { background: var(--cream); }
+.card p { margin: 0; color: var(--ink-soft); }
+
+.grandmother {
+  margin-top: 26px; padding: 16px 20px; border-left: 4px solid var(--amber);
+  background: var(--cream-deep); border-radius: 0 10px 10px 0;
+}
+
+/* Pipeline */
+.pipeline { padding-left: 1.2em; font-size: 1.05rem; }
+.pipeline li { margin-bottom: 14px; }
+
+/* FAQ */
+#faq h3 { margin-top: 1.6em; color: var(--terracotta-deep); }
+#faq h3:first-of-type { margin-top: 0.6em; }
+
+/* CTA */
+.cta { padding: 72px 0; text-align: center; background: var(--terracotta); color: var(--white); }
+.cta h2 { color: var(--white); }
+.cta p { max-width: 52ch; margin: 0 auto 24px; color: #FBEBDD; }
+.cta .btn { border-color: var(--white); color: var(--white); }
+.cta .btn:hover { background: rgba(255, 255, 255, 0.12); }
+.cta .btn-primary { background: var(--white); color: var(--terracotta-deep); }
+.cta .btn-primary:hover { background: var(--cream); color: var(--terracotta-deep); }
+
+/* Footer */
+.site-footer { padding: 40px 0 52px; color: var(--ink-soft); font-size: 0.95rem; }
+.fine { font-size: 0.88rem; }
+
+@media (max-width: 640px) {
+  .header-inner { flex-direction: column; align-items: flex-start; }
+  .hero { padding-top: 48px; }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cream: #221A12; --cream-deep: #2E2417;
+    --ink: #F1E7D6; --ink-soft: #C7B9A2;
+    --line: #3E3022;
+    --white: #2A2014;
+  }
+  .site-header { background: rgba(34, 26, 18, 0.92); }
+  .facts strong, #faq h3 { color: var(--amber); }
+  .hero h1 em { color: var(--amber); }
+}
+
+@media print {
+  .site-header, .cta, .site-footer { display: none; }
+  body { background: #fff; color: #000; }
+}
