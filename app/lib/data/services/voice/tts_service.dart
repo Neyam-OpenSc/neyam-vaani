@@ -151,7 +151,7 @@ final class FfiPiperBridge implements PiperBridge {
   bool _openAttempted = false;
   bool _ready = false;
   bool _disposed = false;
-  NativeCallable<NativeFunction<_PPcmCbNative>>? _pcmCallable;
+  NativeCallable<_PPcmCbNative>? _pcmCallable;
   PcmChunkHandler? _handler;
 
   @override
@@ -167,11 +167,9 @@ final class FfiPiperBridge implements PiperBridge {
     if (lib == null || path == null || _disposed) {
       return false;
     }
-    NativeCallable<NativeFunction<_PPcmCbNative>>? callable;
+    NativeCallable<_PPcmCbNative>? callable;
     try {
-      callable = NativeCallable<NativeFunction<_PPcmCbNative>>.listener(
-        _onPcm,
-      );
+      callable = NativeCallable<_PPcmCbNative>.listener(_onPcm);
       final Pointer<Utf8> pathPtr = path.toNativeUtf8(allocator: calloc);
       try {
         if (lib
@@ -257,8 +255,7 @@ final class FfiPiperBridge implements PiperBridge {
   @override
   int speak(String text, double speed, PcmChunkHandler onPcm) {
     final DynamicLibrary? lib = _libraryOrNull();
-    final NativeCallable<NativeFunction<_PPcmCbNative>>? callable =
-        _pcmCallable;
+    final NativeCallable<_PPcmCbNative>? callable = _pcmCallable;
     if (lib == null || !_ready || callable == null || _disposed) {
       return -1;
     }

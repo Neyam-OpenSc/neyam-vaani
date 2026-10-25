@@ -393,7 +393,7 @@ class SttService {
 
   DynamicLibrary? _lib;
   bool _openAttempted = false;
-  NativeCallable<NativeFunction<_WTranscriptCbNative>>? _transcriptCallable;
+  NativeCallable<_WTranscriptCbNative>? _transcriptCallable;
   bool _nativeReady = false;
   int _sampleRate = fallbackSampleRate;
   bool _listening = false;
@@ -598,10 +598,8 @@ class SttService {
         calloc.free(modelPtr);
         calloc.free(langPtr);
       }
-      final NativeCallable<NativeFunction<_WTranscriptCbNative>> callable =
-          NativeCallable<NativeFunction<_WTranscriptCbNative>>.listener(
-        _onNativeTranscript,
-      );
+      final NativeCallable<_WTranscriptCbNative> callable =
+          NativeCallable<_WTranscriptCbNative>.listener(_onNativeTranscript);
       final int setRc = lib
           .lookupFunction<_WSetCbNative, _WSetCb>(
               'nv_whisper_set_transcript_callback')(callable.nativeFunction);

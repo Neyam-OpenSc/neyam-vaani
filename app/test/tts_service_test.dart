@@ -29,8 +29,9 @@ final class _FakePiperBridge implements PiperBridge {
   /// When false, it emits the first chunk and waits for [finishSpeaking].
   bool autoFinish = true;
 
-  /// When false, speak() emits nothing at all until [emitFirstChunk].
-  bool emitFirstChunk = true;
+  /// When false, speak() emits nothing at all until emitFirstChunk() is
+  /// called; when true, the first chunk flows immediately.
+  bool autoEmitFirstChunk = true;
 
   /// When true, speak() fails immediately with an ERR_BUSY-style code.
   bool failSpeak = false;
@@ -68,7 +69,7 @@ final class _FakePiperBridge implements PiperBridge {
     if (failSpeak) {
       return -16; // ERR_BUSY-style refusal.
     }
-    if (!emitFirstChunk) {
+    if (!autoEmitFirstChunk) {
       pendingHandler = onPcm;
       return 0;
     }
@@ -109,7 +110,7 @@ void main() {
         () async {
       final _FakePiperBridge bridge = _FakePiperBridge()
         ..autoFinish = false
-        ..emitFirstChunk = false;
+        ..autoEmitFirstChunk = false;
       final _RecordingSink sink = _RecordingSink();
       final TtsService tts = TtsService(bridge: bridge)..attachSink(sink);
 
