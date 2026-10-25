@@ -31,7 +31,7 @@
   <!-- Icons & theme -->
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
-  <meta name="theme-color" content="#C05621">
+  <meta name="theme-color" content="#9C4118">
 
   <!-- For AI assistants and answer engines -->
   <link rel="llms" href="/llms.txt" title="llms.txt">
@@ -125,127 +125,163 @@
 </head>
 
 <body>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="brand" href="/">
-        <img src="logo.png" alt="Neyam Vaani logo" width="44" height="30">
-        <span>Neyam&nbsp;Vaani</span>
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <a class="wordmark" href="/">
+        <img src="logo.png" alt="" width="34" height="23">
+        <span>Neyam Vaani</span>
       </a>
       <nav aria-label="Primary">
-        <a href="#what">What it is</a>
+        <a href="#overview">Overview</a>
         <a href="#principles">Principles</a>
-        <a href="#how">How it works</a>
-        <a href="#faq">FAQ</a>
-        <a class="btn btn-small" href="https://github.com/Neyam-OpenSc/neyam-vaani" rel="noopener">GitHub ★</a>
+        <a href="#technology">Technology</a>
+        <a href="#faq">Questions</a>
+        <a href="https://github.com/Neyam-OpenSc/neyam-vaani" rel="noopener">Source</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="hero">
+    <!-- Introduction -->
+    <section class="intro">
       <div class="wrap">
-        <p class="greetings" lang="ta" aria-label="Greetings in the nine supported languages">
+        <p class="kicker">An open source project of Neyam OpenSc</p>
+        <h1>A voice assistant that speaks your language — offline, on any phone.</h1>
+        <p class="standfirst">
+          Neyam Vaani is a free, open source AI assistant for Android that runs
+          entirely on the device — including the speech recognition, the language
+          model, and the voice. It is built for people who speak
+          Tamil, Hindi, Bengali, Kannada, Telugu, Marathi, Bhojpuri or Maithili,
+          and for phones the industry has stopped optimizing for.
+        </p>
+        <p class="greeting" lang="ta">
           <span lang="ta">வணக்கம்</span> · <span lang="hi">नमस्ते</span> · <span lang="bn">নমস্কার</span> · <span lang="kn">ನಮಸ್ಕಾರ</span> · <span lang="te">నమస్కారం</span> · <span lang="mr">नमस्कार</span> · <span lang="bho">प्रणाम</span> · <span lang="mai">प्रणाम</span>
         </p>
-        <h1>A voice assistant that speaks <em>your</em> language — offline, on any phone.</h1>
-        <p class="lede">
-          <strong>Neyam Vaani</strong> is a free, open source AI assistant for Android
-          that runs with zero internet on a $200 phone and gives
-          <strong>Tamil, Hindi, Bengali, Kannada, Telugu, Marathi, Bhojpuri and Maithili</strong>
-          the same respect English gets. Speak to it — it speaks back.
-        </p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="https://github.com/Neyam-OpenSc/neyam-vaani" rel="noopener">View on GitHub</a>
-          <a class="btn" href="https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/docs/roadmap.md" rel="noopener">Roadmap → Public beta</a>
-        </div>
-        <ul class="facts">
-          <li><strong>100%</strong> offline</li>
-          <li><strong>2GB</strong> RAM phones</li>
-          <li><strong>9</strong> languages</li>
-          <li><strong>₹0</strong> — Apache-2.0, forever</li>
-        </ul>
       </div>
     </section>
 
-    <!-- WHAT -->
-    <section id="what" class="section">
+    <!-- At a glance -->
+    <section class="glance" aria-label="Project facts at a glance">
       <div class="wrap">
-        <h2>What is Neyam Vaani?</h2>
+        <dl class="glance-grid">
+          <div><dt>License</dt><dd>Apache-2.0, free forever — no ads, no accounts</dd></div>
+          <div><dt>Platform</dt><dd>Android 7.0+; designed for $200 phones with 2GB RAM</dd></div>
+          <div><dt>Languages</dt><dd>Nine Indian languages, at full parity</dd></div>
+          <div><dt>Connectivity</dt><dd>Fully offline; only language-pack downloads are optional</dd></div>
+          <div><dt>Privacy</dt><dd>All processing on-device; recordings never stored</dd></div>
+          <div><dt>Status</dt><dd>Phase 0 of a <a href="https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/docs/roadmap.md" rel="noopener">90-day roadmap</a> to public beta</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section id="overview" class="section">
+      <div class="wrap wrap-text">
+        <h2>Overview</h2>
         <p>
-          Hundreds of millions of people in India own a smartphone but can't comfortably
-          <em>use</em> it — because it demands typing in English, constant internet, and
-          expensive hardware. Vaani is built on the opposite of all three assumptions.
-          It answers questions, drafts and sends WhatsApp and SMS messages, reads letters
-          and medicine labels aloud, translates between vernacular languages, fills
-          government forms by voice, sets reminders, and runs phone actions — all by
-          speaking, all on-device.
+          Hundreds of millions of people in India own a smartphone but cannot
+          comfortably use it, because the phone demands typing in English, a
+          constant internet connection, and hardware that keeps getting more
+          expensive. Vaani starts from the opposite assumptions. You speak to it
+          in your own language; it answers in your own language; and everything
+          it needs to do so fits on the phone in your pocket.
         </p>
-        <div class="grid grid-3">
-          <article class="card">
-            <h3>🗣️ Ask anything, by voice</h3>
-            <p>"<span lang="ta">தமிழ்நாடு முதல்வர் யார்?</span>" — ask in your language,
-            get a short, spoken answer in your language. Powered by an on-device model,
-            not the cloud.</p>
-          </article>
-          <article class="card">
-            <h3>✉️ Dictate, don't type</h3>
-            <p>"<span lang="hi">अन्ना को WhatsApp मैसेज भेजो</span>" — dictate messages,
-            formal letters and school notes. Vaani drafts them naturally, you send them
-            with one tap.</p>
-          </article>
-          <article class="card">
-            <h3>📄 Read the paper world</h3>
-            <p>Photograph a letter, form or medicine label; Vaani reads it aloud and
-            explains it in plain language — what it says and what you need to do.</p>
-          </article>
-        </div>
+        <p>
+          In practice, Vaani answers spoken questions, drafts and sends WhatsApp
+          and SMS messages, reads letters and medicine labels aloud, translates
+          between the languages it speaks, fills government forms by voice, sets
+          reminders, and carries out ordinary phone actions — calls, torch,
+          clipboard — without a single keystroke.
+        </p>
+        <blockquote>
+          <p>
+            If a seventy-year-old in a Tamil village cannot use it without help,
+            it is broken. This is the test every feature must pass.
+          </p>
+        </blockquote>
       </div>
     </section>
 
-    <!-- PRINCIPLES -->
-    <section id="principles" class="section section-alt">
+    <!-- Principles -->
+    <section id="principles" class="section section-rule">
       <div class="wrap">
-        <h2>Seven promises we can't break</h2>
-        <p class="section-note">Every design decision must satisfy all seven — codified in
-        the project's <a href="https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/TENDER_UX_PRINCIPLES.md" rel="noopener">Tender&nbsp;UX&nbsp;Principles</a>
-        and <a href="https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/PRIVACY_CHARTER.md" rel="noopener">Privacy&nbsp;Charter</a>.</p>
-        <div class="grid grid-2">
-          <article class="card"><h3>📶 Offline-first</h3><p>Every core feature works with zero internet. Connectivity is an upgrade, never a requirement.</p></article>
-          <article class="card"><h3>📱 Cheap-hardware-first</h3><p>Target device: a $200 Android phone with 2GB RAM. Cold start under 3 seconds.</p></article>
-          <article class="card"><h3>🎙️ Voice-first</h3><p>Voice in, voice out. Typing is a fallback for people who want it, never a requirement.</p></article>
-          <article class="card"><h3>🇮🇳 Vernacular-first</h3><p>Nine languages at parity — including Bhojpuri and Maithili, which commercial assistants skip.</p></article>
-          <article class="card"><h3>🔒 Private by default</h3><p>All AI runs on your phone. No cloud, no accounts, no telemetry, no ads. Recordings are never stored.</p></article>
-          <article class="card"><h3>💛 Tender UX</h3><p>No dark patterns, no engagement hooks, no unrequested notifications. Errors are kind; silence is respected.</p></article>
-        </div>
-        <p class="grandmother">…and the test that governs them all:
-        <strong>if a 70-year-old in a Tamil village can't use it without help, it's broken.</strong></p>
-      </div>
-    </section>
-
-    <!-- HOW -->
-    <section id="how" class="section">
-      <div class="wrap">
-        <h2>How it works — entirely on your phone</h2>
-        <ol class="pipeline">
-          <li><strong>You speak.</strong> On-device speech recognition (Whisper) transcribes
-          and detects whether you're speaking Tamil, Hindi, or any supported language.</li>
-          <li><strong>Vaani understands.</strong> A fast classifier routes your request;
-          an on-device language model (Qwen 2.5 via llama.cpp) handles questions, drafting
-          and explanation — no server involved.</li>
-          <li><strong>Vaani acts &amp; answers.</strong> Send the message, set the reminder,
-          or answer from a local knowledge base — then it speaks the reply in your
-          language (Piper neural voices).</li>
+        <h2>Principles</h2>
+        <p class="section-intro">
+          Seven commitments govern every design decision. They are codified in the
+          project's <a href="https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/TENDER_UX_PRINCIPLES.md" rel="noopener">Tender UX Principles</a>
+          and <a href="https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/PRIVACY_CHARTER.md" rel="noopener">Privacy Charter</a>,
+          and no contribution may weaken them.
+        </p>
+        <ol class="principles">
+          <li>
+            <h3>Offline-first</h3>
+            <p>Every core feature works with zero internet. Connectivity is an upgrade, never a requirement.</p>
+          </li>
+          <li>
+            <h3>Cheap-hardware-first</h3>
+            <p>The reference device is a $200 Android phone with 2GB of RAM, with a cold start under three seconds.</p>
+          </li>
+          <li>
+            <h3>Voice-first</h3>
+            <p>Speech in, speech out. Typing remains available as a fallback, never as a requirement.</p>
+          </li>
+          <li>
+            <h3>Vernacular-first</h3>
+            <p>Tamil, Hindi, Bengali, Kannada, Telugu, Marathi, Bhojpuri and Maithili at parity — including the languages commercial assistants skip.</p>
+          </li>
+          <li>
+            <h3>Private by default</h3>
+            <p>All intelligence runs on the device. No cloud, no accounts, no telemetry, no advertising. Recordings are never stored.</p>
+          </li>
+          <li>
+            <h3>Tender UX</h3>
+            <p>No dark patterns, no engagement hooks, no unrequested notifications. Errors are worded kindly; attention is respected.</p>
+          </li>
+          <li>
+            <h3>Grandmother-usable</h3>
+            <p>Usable unaided by someone who has never been taught computers — the standard, not a stretch goal.</p>
+          </li>
         </ol>
-        <p>Full architecture, model budget and stack rationale in
-        <a href="https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/docs/architecture.md" rel="noopener">the docs</a>.</p>
+      </div>
+    </section>
+
+    <!-- Technology -->
+    <section id="technology" class="section section-rule">
+      <div class="wrap">
+        <h2>Technology</h2>
+        <p class="section-intro">
+          Vaani assembles proven open components into a pipeline that fits inside
+          a low-end phone. Each stage runs on the device.
+        </p>
+        <ol class="pipeline">
+          <li>
+            <h3>Speech recognition</h3>
+            <p>Whisper (via whisper.cpp) transcribes speech and detects which of the nine languages is being spoken, with Silero detecting when you have finished.</p>
+          </li>
+          <li>
+            <h3>Understanding</h3>
+            <p>A fast on-device classifier routes the request; Qwen 2.5 — a multilingual model small enough for a phone, running via llama.cpp — handles questions, drafting and explanation. No server is involved at any point.</p>
+          </li>
+          <li>
+            <h3>Knowledge and action</h3>
+            <p>Factual questions draw on a local knowledge base with hybrid full-text and semantic search. Requests that do something — send, call, remind — are carried out through standard Android actions, with your confirmation.</p>
+          </li>
+          <li>
+            <h3>Speech output</h3>
+            <p>Piper neural voices speak the reply in your language, with a slower, calm default pace and instant interruption when you begin talking again.</p>
+          </li>
+        </ol>
+        <p class="further">
+          The full architecture, model budget and stack rationale are documented in
+          <a href="https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/docs/architecture.md" rel="noopener">docs/architecture.md</a>.
+        </p>
       </div>
     </section>
 
     <!-- FAQ (mirrors FAQPage JSON-LD) -->
-    <section id="faq" class="section section-alt">
-      <div class="wrap wrap-narrow">
-        <h2>Frequently asked questions</h2>
+    <section id="faq" class="section section-rule">
+      <div class="wrap wrap-text">
+        <h2>Questions</h2>
 
         <h3>Does it really work without internet?</h3>
         <p>Yes — 100% of core features are offline. Speech recognition, the language model,
@@ -267,43 +303,57 @@
 
         <h3>Who is building this?</h3>
         <p><a href="https://github.com/Neyam-OpenSc" rel="noopener">Neyam OpenSc</a>, an
-        open source organization — with native-speaker <em>language stewards</em> owning
-        quality for each language. Contributions welcome.</p>
+        open source organization — with native-speaker language stewards owning
+        quality for each language.</p>
 
         <h3>When can I try it?</h3>
-        <p>The project is in Phase 0 of a 90-day roadmap to public beta. Watch
+        <p>The project is in Phase 0 of a 90-day roadmap to public beta. Follow
         <a href="https://github.com/Neyam-OpenSc/neyam-vaani" rel="noopener">the repository</a>
         for releases.</p>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta">
-      <div class="wrap">
-        <h2>Built in the open. Join in.</h2>
-        <p>Code, docs, prompts, and roadmaps are public. The most valuable contribution
-        is a native speaker's ear.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="https://github.com/Neyam-OpenSc/neyam-vaani" rel="noopener">Star on GitHub</a>
-          <a class="btn" href="https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/CONTRIBUTING.md" rel="noopener">Contribute</a>
-        </div>
+    <!-- Contribute -->
+    <section class="section section-rule contribute">
+      <div class="wrap wrap-text">
+        <h2>Contribute</h2>
+        <p>
+          The code, documentation, prompts and roadmap are public from day one.
+          The most valuable contribution is a native speaker's ear — as a
+          language steward you own the quality of Vaani in your language.
+        </p>
+        <p class="links">
+          <a href="https://github.com/Neyam-OpenSc/neyam-vaani" rel="noopener">Source code</a>
+          <span aria-hidden="true">·</span>
+          <a href="https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/CONTRIBUTING.md" rel="noopener">Contributing guide</a>
+          <span aria-hidden="true">·</span>
+          <a href="https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/docs/roadmap.md" rel="noopener">Roadmap</a>
+        </p>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="colophon">
     <div class="wrap">
-      <p><strong>🪔 Neyam Vaani</strong> — a project of
+      <p>
+        <strong>Neyam Vaani</strong> — a project of
         <a href="https://github.com/Neyam-OpenSc" rel="noopener">Neyam OpenSc</a>.
-        Open source, built for people.</p>
-      <p class="fine">
-        <a href="https://github.com/Neyam-OpenSc/neyam-vaani" rel="noopener">GitHub</a> ·
-        <a href="https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/docs/roadmap.md" rel="noopener">Roadmap</a> ·
-        <a href="https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/PRIVACY_CHARTER.md" rel="noopener">Privacy Charter</a> ·
-        <a href="https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/CODE_OF_CONDUCT.md" rel="noopener">Code of Conduct</a> ·
-        <a href="/llms.txt">llms.txt</a>
+        Open source, built for people.
       </p>
-      <p class="fine">Code: Apache-2.0 · Docs &amp; prompts: CC-BY-SA 4.0 · © 2026 Neyam OpenSc</p>
+      <p class="fine">
+        Code: Apache-2.0 · Documentation: CC-BY-SA 4.0 · © 2026 Neyam OpenSc
+      </p>
+      <p class="fine">
+        <a href="https://github.com/Neyam-OpenSc/neyam-vaani" rel="noopener">GitHub</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/PRIVACY_CHARTER.md" rel="noopener">Privacy Charter</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://github.com/Neyam-OpenSc/neyam-vaani/blob/main/CODE_OF_CONDUCT.md" rel="noopener">Code of Conduct</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://github.com/Neyam-OpenSc/neyam-vaani/security" rel="noopener">Security</a>
+        <span aria-hidden="true">·</span>
+        <a href="/llms.txt">For AI assistants (llms.txt)</a>
+      </p>
     </div>
   </footer>
 </body>
