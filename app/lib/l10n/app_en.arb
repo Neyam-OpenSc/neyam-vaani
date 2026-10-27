@@ -39,5 +39,11 @@
   "permissionSmsWhy": "To send the message you asked for",
   "permissionCallWhy": "To make the call you asked for",
   "actionDone": "Done",
-  "actionFailed": "I couldn't do that. Can we try again?"
+  "actionFailed": "I couldn't do that. Can we try again?",
+  "greetingReply": "Hello. I am Vaani. You can ask me about helpline numbers, fever, government schemes, or today's date and time.",
+  "dateTimeReply": "Today is {date}. The time is {time}.",
+  "noAnswerYet": "I don't know that yet. On this phone I can tell you helpline numbers, basic fever care, government schemes, and the date and time.",
+  "voiceUnavailable": "I can't use the microphone right now. You can type your question below.",
+  "typeHere": "Type your question",
+  "send": "Send"
 }

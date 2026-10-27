@@ -56,6 +56,12 @@ class AppStrings {
           'permissionCallWhy': 'To make the call you asked for',
           'actionDone': 'Done',
           'actionFailed': 'I couldn\'t do that. Can we try again?',
+          'greetingReply': 'Hello. I am Vaani. You can ask me about helpline numbers, fever, government schemes, or today\'s date and time.',
+          'dateTimeReply': 'Today is {date}. The time is {time}.',
+          'noAnswerYet': 'I don\'t know that yet. On this phone I can tell you helpline numbers, basic fever care, government schemes, and the date and time.',
+          'voiceUnavailable': 'I can\'t use the microphone right now. You can type your question below.',
+          'typeHere': 'Type your question',
+          'send': 'Send',
         },
         // steward review pending (Tamil) — native-speaker sign-off required.
         'ta': <String, String>{
@@ -83,6 +89,12 @@ class AppStrings {
           'permissionCallWhy': 'நீங்கள் கேட்ட அழைப்பை மேற்கொள்ள',
           'actionDone': 'முடிந்தது',
           'actionFailed': 'அதைச் செய்ய முடியவில்லை. மீண்டும் முயற்சிக்கலாமா?',
+          'greetingReply': 'வணக்கம். நான் வாணி. உதவி எண்கள், காய்ச்சல், அரசுத் திட்டங்கள், இன்றைய தேதி, நேரம் பற்றி என்னிடம் கேட்கலாம்.',
+          'dateTimeReply': 'இன்று {date}. நேரம் {time}.',
+          'noAnswerYet': 'இது எனக்கு இன்னும் தெரியாது. உதவி எண்கள், காய்ச்சல் கவனிப்பு, அரசுத் திட்டங்கள், தேதி, நேரம் பற்றி சொல்ல முடியும்.',
+          'voiceUnavailable': 'இப்போது மைக்கைப் பயன்படுத்த முடியவில்லை. கீழே உங்கள் கேள்வியைத் தட்டச்சு செய்யலாம்.',
+          'typeHere': 'உங்கள் கேள்வியைத் தட்டச்சு செய்யுங்கள்',
+          'send': 'அனுப்பு',
         },
         // steward review pending (Hindi) — native-speaker sign-off required.
         'hi': <String, String>{
@@ -110,6 +122,12 @@ class AppStrings {
           'permissionCallWhy': 'आपके कहे कॉल करने के लिए',
           'actionDone': 'हो गया',
           'actionFailed': 'यह काम नहीं हो पाया. फिर से कोशिश करें?',
+          'greetingReply': 'नमस्ते. मैं वाणी हूँ. आप मुझसे हेल्पलाइन नंबर, बुखार, सरकारी योजनाओं, या आज की तारीख और समय के बारे में पूछ सकते हैं.',
+          'dateTimeReply': 'आज {date} है. समय {time} है.',
+          'noAnswerYet': 'यह मुझे अभी नहीं पता. इस फ़ोन पर मैं हेल्पलाइन नंबर, बुखार की देखभाल, सरकारी योजनाएँ, और तारीख-समय बता सकती हूँ.',
+          'voiceUnavailable': 'अभी मैं माइक इस्तेमाल नहीं कर पा रही हूँ. आप नीचे अपना सवाल टाइप कर सकते हैं.',
+          'typeHere': 'अपना सवाल टाइप कीजिए',
+          'send': 'भेजें',
         },
         // steward review pending (Bengali) — native-speaker sign-off required.
         'bn': <String, String>{
@@ -137,6 +155,12 @@ class AppStrings {
           'permissionCallWhy': 'আপনার বলা কল করার জন্য',
           'actionDone': 'হয়ে গেছে',
           'actionFailed': 'কাজটি হয়নি. আবার চেষ্টা করবেন?',
+          'greetingReply': 'নমস্কার. আমি ভাণী. হেল্পলাইন নম্বর, জ্বর, সরকারি প্রকল্প, বা আজকের তারিখ ও সময় নিয়ে আমাকে জিজ্ঞেস করতে পারেন.',
+          'dateTimeReply': 'আজ {date}. এখন সময় {time}.',
+          'noAnswerYet': 'এটা আমি এখনও জানি না. এই ফোনে আমি হেল্পলাইন নম্বর, জ্বরের যত্ন, সরকারি প্রকল্প, আর তারিখ ও সময় বলতে পারি.',
+          'voiceUnavailable': 'এখন মাইক ব্যবহার করতে পারছি না. নিচে আপনার প্রশ্ন লিখতে পারেন.',
+          'typeHere': 'আপনার প্রশ্ন লিখুন',
+          'send': 'পাঠান',
         },
         // steward review pending (Kannada) — native-speaker sign-off required.
         'kn': <String, String>{
@@ -164,6 +188,12 @@ class AppStrings {
           'permissionCallWhy': 'ನೀವು ಕೇಳಿದ ಕರೆ ಮಾಡಲು',
           'actionDone': 'ಆಯಿತು',
           'actionFailed': 'ಅದು ಆಗಲಿಲ್ಲ. ಇನ್ನೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿದರಾ?',
+          'greetingReply': 'ನಮಸ್ಕಾರ. ನಾನು ವಾಣಿ. ಸಹಾಯವಾಣಿ ಸಂಖ್ಯೆಗಳು, ಜ್ವರ, ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು, ಅಥವಾ ಇಂದಿನ ದಿನಾಂಕ ಮತ್ತು ಸಮಯದ ಬಗ್ಗೆ ನನ್ನನ್ನು ಕೇಳಬಹುದು.',
+          'dateTimeReply': 'ಇಂದು {date}. ಸಮಯ {time}.',
+          'noAnswerYet': 'ಇದು ನನಗೆ ಇನ್ನೂ ಗೊತ್ತಿಲ್ಲ. ಈ ಫೋನಿನಲ್ಲಿ ಸಹಾಯವಾಣಿ ಸಂಖ್ಯೆಗಳು, ಜ್ವರದ ಆರೈಕೆ, ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು, ದಿನಾಂಕ ಮತ್ತು ಸಮಯ ಹೇಳಬಲ್ಲೆ.',
+          'voiceUnavailable': 'ಈಗ ಮೈಕ್ ಬಳಸಲು ಆಗುತ್ತಿಲ್ಲ. ಕೆಳಗೆ ನಿಮ್ಮ ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಬಹುದು.',
+          'typeHere': 'ನಿಮ್ಮ ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ',
+          'send': 'ಕಳುಹಿಸಿ',
         },
         // steward review pending (Telugu) — native-speaker sign-off required.
         'te': <String, String>{
@@ -191,6 +221,12 @@ class AppStrings {
           'permissionCallWhy': 'మీరు అడిగిన కాల్ చేయడానికి',
           'actionDone': 'అయిపోయింది',
           'actionFailed': 'అది చేయబడలేదు. మళ్ళీ ప్రయత్నించాలా?',
+          'greetingReply': 'నమస్కారం. నేను వాణి. హెల్ప్‌లైన్ నంబర్లు, జ్వరం, ప్రభుత్వ పథకాలు, లేదా ఈరోజు తేదీ, సమయం గురించి నన్ను అడగవచ్చు.',
+          'dateTimeReply': 'ఈరోజు {date}. సమయం {time}.',
+          'noAnswerYet': 'ఇది నాకు ఇంకా తెలియదు. ఈ ఫోన్‌లో హెల్ప్‌లైన్ నంబర్లు, జ్వరం జాగ్రత్తలు, ప్రభుత్వ పథకాలు, తేదీ, సమయం చెప్పగలను.',
+          'voiceUnavailable': 'ఇప్పుడు మైక్ వాడలేకపోతున్నాను. కింద మీ ప్రశ్నను టైప్ చేయవచ్చు.',
+          'typeHere': 'మీ ప్రశ్నను టైప్ చేయండి',
+          'send': 'పంపండి',
         },
         // steward review pending (Marathi) — native-speaker sign-off required.
         'mr': <String, String>{
@@ -218,6 +254,12 @@ class AppStrings {
           'permissionCallWhy': 'तुम्ही सांगितलेला कॉल करण्यासाठी',
           'actionDone': 'झाले',
           'actionFailed': 'ते होऊ शकले नाही. पुन्हा प्रयत्न करू का?',
+          'greetingReply': 'नमस्कार. मी वाणी. हेल्पलाइन नंबर, ताप, सरकारी योजना, किंवा आजची तारीख आणि वेळ याबद्दल मला विचारू शकता.',
+          'dateTimeReply': 'आज {date} आहे. वेळ {time} आहे.',
+          'noAnswerYet': 'हे मला अजून माहीत नाही. या फोनवर मी हेल्पलाइन नंबर, तापाची काळजी, सरकारी योजना, आणि तारीख-वेळ सांगू शकते.',
+          'voiceUnavailable': 'आत्ता मायक वापरता येत नाही. खाली तुमचा प्रश्न टाइप करू शकता.',
+          'typeHere': 'तुमचा प्रश्न टाइप करा',
+          'send': 'पाठवा',
         },
         // steward review pending (Bhojpuri) — native-speaker sign-off required.
         'bho': <String, String>{
@@ -245,6 +287,12 @@ class AppStrings {
           'permissionCallWhy': 'आपना कहल कॉल करे खातिर',
           'actionDone': 'भइल',
           'actionFailed': 'ई ना हो पाइल. फिर से कोसिस करीं का?',
+          'greetingReply': 'प्रणाम. हम वाणी हईं. हेल्पलाइन नंबर, बुखार, सरकारी योजना, भा आज के तारीख आ समय के बारे में पूछ सकेनी.',
+          'dateTimeReply': 'आज {date} बा. समय {time} बा.',
+          'noAnswerYet': 'ई हमके अबहीं ना पता. एह फोन पर हम हेल्पलाइन नंबर, बुखार के देखभाल, सरकारी योजना, आ तारीख-समय बता सकेनी.',
+          'voiceUnavailable': 'अबहीं माइक ना चल पावत बा. नीचे आपन सवाल टाइप करीं.',
+          'typeHere': 'आपन सवाल टाइप करीं',
+          'send': 'भेजीं',
         },
         // steward review pending (Maithili) — native-speaker sign-off required.
         'mai': <String, String>{
@@ -272,6 +320,12 @@ class AppStrings {
           'permissionCallWhy': 'अहाँक कहल कॉल करबाक लेल',
           'actionDone': 'भेल',
           'actionFailed': 'ई नहि हो पाल. फिनु कोशिश करू का?',
+          'greetingReply': 'प्रणाम. हम वाणी छी. हेल्पलाइन नंबर, बुखार, सरकारी योजना, वा आजुक तारीख आ समयक बारेमे पूछि सकैत छी.',
+          'dateTimeReply': 'आइ {date} अछि. समय {time} अछि.',
+          'noAnswerYet': 'ई हमरा एखन नहि बुझल अछि. एहि फोन पर हम हेल्पलाइन नंबर, बुखारक देखभाल, सरकारी योजना, आ तारीख-समय कहि सकैत छी.',
+          'voiceUnavailable': 'एखन माइक नहि चलि रहल अछि. नीचाँ अपन प्रश्न टाइप करू.',
+          'typeHere': 'अपन प्रश्न टाइप करू',
+          'send': 'पठाउ',
         },
       };
 
@@ -314,4 +368,15 @@ class AppStrings {
   String get permissionCallWhy => resolve('permissionCallWhy');
   String get actionDone => resolve('actionDone');
   String get actionFailed => resolve('actionFailed');
+  String get greetingReply => resolve('greetingReply');
+  String get noAnswerYet => resolve('noAnswerYet');
+  String get voiceUnavailable => resolve('voiceUnavailable');
+  String get typeHere => resolve('typeHere');
+  String get send => resolve('send');
+
+  /// "Today is {date}. The time is {time}." with both filled in.
+  String dateTimeReply({required String date, required String time}) =>
+      resolve('dateTimeReply')
+          .replaceAll('{date}', date)
+          .replaceAll('{time}', time);
 }

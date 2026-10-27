@@ -3,56 +3,94 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../home/home_screen.dart' show VoiceMicButton;
+import '../../l10n/app_strings.dart';
 import '../providers.dart';
 
-/// The conversation: what Vaani heard, what it is doing, what it said.
+/// The conversation: what the user said, what Vaani answered, and what
+/// Vaani is doing right now.
 ///
 /// Tender UX: honest visuals (always show what was heard, for users with
 /// partial hearing), honest states ("I'm thinking…" — no fake spinners),
-/// and a way out at every step. No fake delays anywhere.
-class ConversationScreen extends ConsumerWidget {
+/// a way out at every step, and typing as an equal to speaking.
+class ConversationScreen extends ConsumerStatefulWidget {
   const ConversationScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ConversationScreen> createState() =>
+      _ConversationScreenState();
+}
+
+class _ConversationScreenState extends ConsumerState<ConversationScreen> {
+  final TextEditingController _input = TextEditingController();
+  final ScrollController _scroll = ScrollController();
+
+  @override
+  void dispose() {
+    _input.dispose();
+    _scroll.dispose();
+    super.dispose();
+  }
+
+  void _send() {
+    final String text = _input.text.trim();
+    if (text.isEmpty) {
+      return;
+    }
+    _input.clear();
+    unawaited(ref.read(voiceSessionProvider.notifier).ask(text));
+  }
+
+  void _scrollToEnd() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_scroll.hasClients) {
+        unawaited(_scroll.animateTo(
+          _scroll.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 250),
+          curve: Curves.easeOut,
+        ));
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final VoiceSessionState session = ref.watch(voiceSessionProvider);
+    final List<ChatTurn> turns = ref.watch(conversationProvider);
+    final AppStrings strings =
+        AppStrings.of(ref.watch(selectedLanguageProvider));
+    ref.listen<List<ChatTurn>>(conversationProvider, (_, __) => _scrollToEnd());
+    ref.listen<VoiceSessionState>(voiceSessionProvider, (_, __) => _scrollToEnd());
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Vaani'), // TODO(l10n)
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: const VoiceMicButton(),
+      appBar: AppBar(title: Text(strings.appName)),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: AnimatedSwitcher(
-            duration: const Duration(milliseconds: 250),
-            child: switch (session) {
-              VoiceSessionIdle() => const _EmptyState(
-                  key: ValueKey<String>('idle'),
-                ),
-              VoiceSessionListening(:final partial) => _HeardPane(
-                  key: const ValueKey<String>('listening'),
-                  text: partial,
-                  status: 'Listening…', // TODO(l10n)
-                ),
-              VoiceSessionTranscribing(:final partial) => _HeardPane(
-                  key: const ValueKey<String>('transcribing'),
-                  text: partial,
-                  status: "I'm writing that down…", // TODO(l10n)
-                ),
-              VoiceSessionThinking(:final heard) => _ThinkingPane(
-                  key: const ValueKey<String>('thinking'),
-                  heard: heard,
-                ),
-              VoiceSessionSpeaking(:final text) => _SpeakingPane(
-                  key: const ValueKey<String>('speaking'),
-                  text: text,
-                ),
-            },
-          ),
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: turns.isEmpty && session is VoiceSessionIdle
+                  ? _EmptyState(text: strings.tapAndSpeak)
+                  : ListView(
+                      controller: _scroll,
+                      padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+                      children: <Widget>[
+                        for (final ChatTurn turn in turns) _Bubble(turn: turn),
+                        if (session case VoiceSessionListening(:final String partial)
+                            when partial.isNotEmpty)
+                          _Bubble(turn: ChatTurn.user(partial), draft: true),
+                        if (session case VoiceSessionTranscribing(:final String partial)
+                            when partial.isNotEmpty)
+                          _Bubble(turn: ChatTurn.user(partial), draft: true),
+                      ],
+                    ),
+            ),
+            _StatusLine(session: session, strings: strings),
+            _InputBar(
+              controller: _input,
+              session: session,
+              strings: strings,
+              onSend: _send,
+            ),
+          ],
         ),
       ),
     );
@@ -61,149 +99,197 @@ class ConversationScreen extends ConsumerWidget {
 
 /// Kind empty state (TENDER_UX_PRINCIPLES.md: all states are kind).
 final class _EmptyState extends StatelessWidget {
-  const _EmptyState({super.key});
+  const _EmptyState({required this.text});
+
+  final String text;
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
+      child: Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Icon(
+              Icons.mic_none_rounded,
+              size: 56,
+              color: theme.colorScheme.outline,
+            ),
+            const SizedBox(height: 16),
+            Text(
+              text,
+              textAlign: TextAlign.center,
+              style: theme.textTheme.bodyLarge
+                  ?.copyWith(color: theme.colorScheme.outline),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// One message. The user's words sit on the right, Vaani's on the left;
+/// [draft] marks a live, not-yet-final transcript.
+final class _Bubble extends StatelessWidget {
+  const _Bubble({required this.turn, this.draft = false});
+
+  final ChatTurn turn;
+  final bool draft;
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme colors = Theme.of(context).colorScheme;
+    final bool mine = turn.fromUser;
+    return Align(
+      alignment: mine ? Alignment.centerRight : Alignment.centerLeft,
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxWidth: MediaQuery.sizeOf(context).width * 0.82,
+        ),
+        child: Container(
+          margin: const EdgeInsets.symmetric(vertical: 6),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          decoration: BoxDecoration(
+            color: mine ? colors.primaryContainer : colors.surfaceContainerHighest,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Text(
+            turn.text,
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  color: mine
+                      ? colors.onPrimaryContainer
+                      : colors.onSurfaceVariant,
+                  fontStyle: draft ? FontStyle.italic : FontStyle.normal,
+                  height: 1.4,
+                ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// What Vaani is doing right now, with a way out of it.
+final class _StatusLine extends ConsumerWidget {
+  const _StatusLine({required this.session, required this.strings});
+
+  final VoiceSessionState session;
+  final AppStrings strings;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final VoiceSessionNotifier notifier =
+        ref.read(voiceSessionProvider.notifier);
+    final (String? status, VoidCallback? onStop) = switch (session) {
+      VoiceSessionIdle() => (null, null),
+      VoiceSessionListening() => (strings.listening, null),
+      VoiceSessionTranscribing() => (strings.transcribing, null),
+      VoiceSessionThinking() => (
+          strings.thinking,
+          () => unawaited(notifier.endSession()),
+        ),
+      VoiceSessionSpeaking() => (
+          strings.speaking,
+          () => unawaited(notifier.stopSpeaking()),
+        ),
+    };
+    if (status == null) {
+      return const SizedBox.shrink();
+    }
+    final ThemeData theme = Theme.of(context);
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Row(
         children: <Widget>[
-          Icon(
-            Icons.mic_none_rounded,
-            size: 56,
-            color: theme.colorScheme.outline,
+          Expanded(
+            child: Semantics(
+              liveRegion: true,
+              child: Text(
+                status,
+                style: theme.textTheme.bodyLarge
+                    ?.copyWith(color: theme.colorScheme.outline),
+              ),
+            ),
           ),
-          const SizedBox(height: 16),
-          Text(
-            'Tap the microphone and speak', // TODO(l10n)
-            textAlign: TextAlign.center,
-            style: theme.textTheme.bodyLarge
-                ?.copyWith(color: theme.colorScheme.outline),
-          ),
+          if (onStop != null)
+            TextButton.icon(
+              onPressed: onStop,
+              icon: const Icon(Icons.stop_rounded),
+              label: const Text('Stop'), // TODO(l10n)
+            ),
         ],
       ),
     );
   }
 }
 
-/// What Vaani heard (live transcript hypothesis) plus an honest status.
-final class _HeardPane extends StatelessWidget {
-  const _HeardPane({super.key, required this.text, required this.status});
+/// Type or talk: a text field, a send button and the microphone.
+final class _InputBar extends ConsumerWidget {
+  const _InputBar({
+    required this.controller,
+    required this.session,
+    required this.strings,
+    required this.onSend,
+  });
 
-  final String text;
-  final String status;
-
-  @override
-  Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    return Column(
-      children: <Widget>[
-        Expanded(
-          child: Center(
-            child: SingleChildScrollView(
-              child: Text(
-                text,
-                textAlign: TextAlign.center,
-                style: theme.textTheme.headlineSmall,
-              ),
-            ),
-          ),
-        ),
-        const SizedBox(height: 24),
-        // TODO(Phase 3): the streamed LLM reply renders here once the
-        // orchestrator exists — grow it token by token under this same
-        // layout; until then Vaani shows exactly what it heard, no more.
-        Semantics(
-          liveRegion: true,
-          child: Text(
-            status,
-            textAlign: TextAlign.center,
-            style: theme.textTheme.bodyLarge
-                ?.copyWith(color: theme.colorScheme.outline),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-/// Transcript settled; waiting for the answer (Phase 3 wires the LLM).
-final class _ThinkingPane extends ConsumerWidget {
-  const _ThinkingPane({super.key, required this.heard});
-
-  final String heard;
+  final TextEditingController controller;
+  final VoiceSessionState session;
+  final AppStrings strings;
+  final VoidCallback onSend;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final ThemeData theme = Theme.of(context);
-    return Column(
-      children: <Widget>[
-        Expanded(
-          child: Center(
-            child: SingleChildScrollView(
-              child: Text(
-                heard,
-                textAlign: TextAlign.center,
-                style: theme.textTheme.headlineSmall,
+    final bool listening = session is VoiceSessionListening ||
+        session is VoiceSessionTranscribing;
+    final VoiceSessionNotifier notifier =
+        ref.read(voiceSessionProvider.notifier);
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(12, 8, 12, 12),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: TextField(
+              controller: controller,
+              minLines: 1,
+              maxLines: 4,
+              textInputAction: TextInputAction.send,
+              onSubmitted: (_) => onSend(),
+              style: Theme.of(context).textTheme.titleMedium,
+              decoration: InputDecoration(
+                hintText: strings.typeHere,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(28),
+                ),
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
               ),
             ),
           ),
-        ),
-        // Honest loading state: "I'm thinking…" — not a spinner that lies.
-        Semantics(
-          liveRegion: true,
-          child: Text(
-            "I'm thinking…", // TODO(l10n)
-            textAlign: TextAlign.center,
-            style: theme.textTheme.bodyLarge
-                ?.copyWith(color: theme.colorScheme.outline),
+          const SizedBox(width: 8),
+          IconButton.filledTonal(
+            iconSize: 28,
+            tooltip: strings.send,
+            onPressed: onSend,
+            icon: const Icon(Icons.send_rounded),
           ),
-        ),
-        const SizedBox(height: 16),
-        // Tender UX: always offer a way out, even while thinking.
-        TextButton(
-          onPressed: () =>
-              unawaited(ref.read(voiceSessionProvider.notifier).endSession()),
-          child: const Text('Stop'), // TODO(l10n)
-        ),
-      ],
-    );
-  }
-}
-
-/// Vaani speaking; instantly interruptible.
-final class _SpeakingPane extends ConsumerWidget {
-  const _SpeakingPane({super.key, required this.text});
-
-  final String text;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final ThemeData theme = Theme.of(context);
-    return Column(
-      children: <Widget>[
-        Expanded(
-          child: Center(
-            child: SingleChildScrollView(
-              child: Text(
-                text,
-                textAlign: TextAlign.center,
-                style: theme.textTheme.headlineSmall,
+          const SizedBox(width: 4),
+          Semantics(
+            button: true,
+            label: listening ? 'Stop listening' : 'Start listening', // TODO(l10n)
+            child: IconButton.filled(
+              iconSize: 32,
+              tooltip: listening ? 'Stop listening' : 'Start listening', // TODO(l10n)
+              onPressed: () => unawaited(
+                listening ? notifier.stopListening() : notifier.startListening(),
               ),
+              icon: Icon(listening ? Icons.stop_rounded : Icons.mic),
             ),
           ),
-        ),
-        const SizedBox(height: 24),
-        FilledButton.icon(
-          onPressed: () => unawaited(
-            ref.read(voiceSessionProvider.notifier).stopSpeaking(),
-          ),
-          icon: const Icon(Icons.stop_rounded),
-          label: const Text('Stop'), // TODO(l10n)
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
